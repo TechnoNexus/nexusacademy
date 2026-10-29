@@ -33,12 +33,23 @@ c:\AI\Utilities\pega-practise\
 │   ├── udemy_practice_exam_set_3.csv
 │   ├── udemy_practice_exam_set_4.csv
 │   └── udemy_practice_exam_all_240.csv
+├── Pega_CSA_Exam_Simulator_and_Architectural_Deep_Dive.md # Master 240-question publication-ready study companion (543 KB, PDF source)
 ├── _docs/                   # Documentation tracking
 │   ├── architecture_and_state.md
 │   ├── build_log_and_roadmap.md
-│   └── distribution_and_publishing_masterplan.md # Global publishing & monetization strategy
+│   ├── distribution_and_publishing_masterplan.md # Global publishing & monetization strategy
+│   ├── pega_csa_study_companion_and_deep_dive.md # Master companion copy in docs
+│   └── study_guide/         # Modular Study Guide chapters
+│       ├── 00_front_matter.md # Front matter, blueprint weightage, & 3-pass exam pacing guide
+│       ├── set_1_questions_001_060.md # Part I: Practice Exam Set 1 (Questions 1–60)
+│       ├── set_2_questions_061_120.md # Part II: Practice Exam Set 2 (Questions 61–120)
+│       ├── set_3_questions_121_180.md # Part III: Practice Exam Set 3 (Questions 121–180)
+│       └── set_4_questions_181_240.md # Part IV: Practice Exam Set 4 (Questions 181–240)
 └── scripts/                 # Extraction, validation, and export scripts
-    └── export_udemy_csv.py  # Generates Udemy bulk uploader CSV files
+    ├── export_udemy_csv.py      # Generates Udemy bulk uploader CSV files
+    ├── build_csa_study_guide.py # Compiles 240 questions into publication-ready study companion
+    ├── enrich_study_guide.py    # Deep Pega CLSA concept & distractor rationale engine
+    └── verify_study_guide.py   # Automated assertion suite verifying 240 questions & markdown layout
 ```
 
 ## Architecture

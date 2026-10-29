@@ -57,31 +57,31 @@
 
       <div class="header-actions">
         <button id="btn-unlock-header" class="btn-icon btn-unlock-header" title="Unlock Full Course (240 Questions & 4 Mock Exams)">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
           </svg>
-          <span class="btn-text" id="unlock-btn-text">Unlock Course ($19.99)</span>
+          <span class="btn-text" id="unlock-btn-text">Unlock ($19.99)</span>
         </button>
 
         <button id="btn-courses-toggle" class="btn-icon btn-courses-toggle" title="View Nexus Academy Course Catalog">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
             <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
           </svg>
-          <span class="btn-text">Courses (1)</span>
+          <span class="btn-text">Courses</span>
         </button>
 
         <button id="btn-install-app" class="btn-icon btn-install-app" title="Install Nexus Academy as App" style="display: none;">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
             <polyline points="7 10 12 15 17 10"></polyline>
             <line x1="12" y1="15" x2="12" y2="3"></line>
           </svg>
-          <span class="btn-text">Install App</span>
+          <span class="btn-text">Install</span>
         </button>
 
         <button id="btn-grid-toggle" class="btn-icon" title="View Question Grid (Navigator)">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <rect x="3" y="3" width="7" height="7"></rect>
             <rect x="14" y="3" width="7" height="7"></rect>
             <rect x="14" y="14" width="7" height="7"></rect>
@@ -91,7 +91,7 @@
         </button>
 
         <button id="btn-summary-toggle" class="btn-icon" title="View Scorecard & Mastery Breakdown">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M18 20V10"></path>
             <path d="M12 20V4"></path>
             <path d="M6 20v-6"></path>
@@ -115,8 +115,7 @@
       </div>
       <div class="course-meta-tags">
         <span class="meta-tag trial-tag" id="course-access-tag">🎁 Free Preview: 7 Questions</span>
-        <span class="meta-tag">240 Scenario Questions</span>
-        <span class="meta-tag">4 Mock Exams (60 Qs Each)</span>
+        <span class="meta-tag">4 Full Mock Exams (240 Qs)</span>
         <span class="meta-tag highlight">Passing Benchmark: 65% (39/60)</span>
       </div>
     </div>
@@ -134,61 +133,70 @@
   <!-- Filter & Controls Toolbar -->
   <div class="toolbar-section">
     <div class="toolbar-container">
-      <div class="filter-group exam-set-filter-group">
-        <label for="exam-set-select" class="filter-label">Exam Set:</label>
-        <select id="exam-set-select" class="dropdown-filter exam-set-dropdown" title="Select between 4 balanced 60-question mock exams or all 240 questions">
-          <option value="1">Practice Exam Set 1 (60 Qs)</option>
-          <option value="2">Practice Exam Set 2 (60 Qs)</option>
-          <option value="3">Practice Exam Set 3 (60 Qs)</option>
-          <option value="4">Practice Exam Set 4 (60 Qs)</option>
-          <option value="all">All Practice Bank (240 Qs)</option>
-        </select>
-      </div>
+      <!-- Row 1: Filters & Search -->
+      <div class="toolbar-row-filters">
+        <div class="filter-group exam-set-filter-group">
+          <label for="exam-set-select" class="filter-label">Exam Set:</label>
+          <select id="exam-set-select" class="dropdown-filter exam-set-dropdown" title="Select between 4 balanced 60-question mock exams or all 240 questions">
+            <option value="1">Practice Exam Set 1 (60 Qs)</option>
+            <option value="2">Practice Exam Set 2 (60 Qs)</option>
+            <option value="3">Practice Exam Set 3 (60 Qs)</option>
+            <option value="4">Practice Exam Set 4 (60 Qs)</option>
+            <option value="all">All Practice Bank (240 Qs)</option>
+          </select>
+        </div>
 
-      <div class="filter-group">
-        <label for="category-select" class="filter-label">Topic:</label>
-        <select id="category-select" class="dropdown-filter">
-          <option value="all">All Topics (60 Questions)</option>
-        </select>
-      </div>
+        <div class="filter-group">
+          <label for="category-select" class="filter-label">Topic:</label>
+          <select id="category-select" class="dropdown-filter">
+            <option value="all">All Topics (60 Questions)</option>
+          </select>
+        </div>
 
-      <div class="filter-group">
-        <label for="status-filter" class="filter-label">Filter:</label>
-        <select id="status-filter" class="dropdown-filter">
-          <option value="all">All Questions</option>
-          <option value="unanswered">Unanswered</option>
-          <option value="in_progress">In Progress (Attempts remaining)</option>
-          <option value="correct">Solved Correctly</option>
-          <option value="revealed">Revealed (3 Failed Attempts)</option>
-          <option value="bookmarked">Bookmarked (★)</option>
-        </select>
-      </div>
+        <div class="filter-group">
+          <label for="status-filter" class="filter-label">Filter:</label>
+          <select id="status-filter" class="dropdown-filter">
+            <option value="all">All Questions</option>
+            <option value="unanswered">Unanswered</option>
+            <option value="in_progress">In Progress</option>
+            <option value="correct">Solved Correctly</option>
+            <option value="revealed">Revealed</option>
+            <option value="bookmarked">Bookmarked (★)</option>
+          </select>
+        </div>
 
-      <div class="search-box">
-        <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="11" cy="11" r="8"></circle>
-          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-        </svg>
-        <input type="text" id="search-input" placeholder="Search scenarios, rules, keywords...">
-        <button id="search-clear" class="btn-clear" style="display: none;">&times;</button>
-      </div>
-
-      <div class="toolbar-buttons">
-        <button id="btn-shuffle-toggle" class="btn-shuffle active" title="Toggle between Random Exam Order and Original Topic Order">
-          <span class="shuffle-icon">🔀</span> <span id="shuffle-btn-text">Random Order</span>
-        </button>
-        <button id="btn-reshuffle" class="btn-reshuffle" title="Generate a fresh random exam order">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
-            <polyline points="23 4 23 10 17 10"></polyline>
-            <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+        <div class="search-box">
+          <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
           </svg>
-        </button>
-        <button id="btn-bookmark" class="btn-bookmark" title="Bookmark this question for review">
-          <span class="bookmark-star">☆</span> Bookmark
-        </button>
-        <button id="btn-reset-q" class="btn-text-only" title="Reset this question's attempts">
-          Reset Question
-        </button>
+          <input type="text" id="search-input" placeholder="Search scenarios, rules, keywords...">
+          <button id="search-clear" class="btn-clear" style="display: none;">&times;</button>
+        </div>
+      </div>
+
+      <!-- Row 2: Exam Controls & Shortcuts -->
+      <div class="toolbar-row-actions">
+        <div class="toolbar-buttons">
+          <button id="btn-shuffle-toggle" class="btn-shuffle active" title="Toggle between Random Exam Order and Original Topic Order">
+            <span class="shuffle-icon">🔀</span> <span id="shuffle-btn-text">Random Order</span>
+          </button>
+          <button id="btn-reshuffle" class="btn-reshuffle" title="Generate a fresh random exam order">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+              <polyline points="23 4 23 10 17 10"></polyline>
+              <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+            </svg>
+          </button>
+          <button id="btn-bookmark" class="btn-bookmark" title="Bookmark this question for review">
+            <span class="bookmark-star">☆</span> Bookmark
+          </button>
+          <button id="btn-reset-q" class="btn-text-only" title="Reset this question's attempts">
+            Reset Question
+          </button>
+        </div>
+        <div class="toolbar-hint">
+          <span>Shortcuts: <strong>1-4</strong> choose • <strong>Enter</strong> submit • <strong>←/→</strong> navigate • <strong>R</strong> reshuffle</span>
+        </div>
       </div>
     </div>
   </div>

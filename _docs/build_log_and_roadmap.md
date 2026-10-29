@@ -2,6 +2,42 @@
 
 ## Build Log
 
+- **2026-10-29 (Phase 7: Header & Toolbar Layout Stabilization & Distortion Fixes)**:
+  - **Header Stat Pills Anti-Crush Fix**:
+    - Fixed vertical distortion where `Score: 0 / 60` and `Progress: 0 / 60` wrapped into tall multi-line ovals on medium screens.
+    - Added `white-space: nowrap; flex-shrink: 0; line-height: 1; display: inline-flex;` across all stat pills and values.
+    - Expanded `.header-container`, `.course-bar-container`, and `.toolbar-container` to unified `max-width: 1360px;`.
+    - Compacted button labels in `.header-actions` (`Unlock ($19.99)`, `Courses`, `Install`, `Stats`) and added responsive icon collapsing below 1100px.
+  - **2-Tier Symmetrical Toolbar Structure**:
+    - Replaced the single wrapping flex container with a structured 2-tier toolbar:
+      - Row 1: Filters (Exam Set, Topic, Status) and responsive Search bar.
+      - Row 2: Exam Controls (Random Order, Reshuffle, Bookmark, Reset Question) and keyboard navigation shortcuts guide.
+    - Eliminated floating left-aligned action buttons and resolved container wrapping glitches.
+  - **Course Context Bar Streamlining**:
+    - Condensed redundant badge labels in course bar to clean, non-wrapping chips.
+
+- **2026-10-29 (Phase 6: Publication-Ready 240-Question Study Companion & Blueprint Guide Generation)**:
+  - **Exhaustive 240-Question Study Companion & Architectural Deep-Dive**:
+    - Transformed all 240 scenario questions from the 4 CSV exam sets (`udemy_practice_exam_set_1.csv` through `set_4.csv`) into a publication-ready Markdown book (`Pega_CSA_Exam_Simulator_and_Architectural_Deep_Dive.md`, 543 KB, 5,886 lines).
+    - Preserved 100% source fidelity across all stems, options, and correct answers without altering ground truth.
+    - Sequentially numbered all 240 questions across 4 full-length exam chapters (Questions 1–60, 61–120, 121–180, 181–240).
+    - Structured every question with:
+      - Exact CSV Scenario stem & options [A] through [D]
+      - Clear marked correct answer
+      - Deep architectural mechanics explaining runtime rule execution, clipboard page scopes, rule resolution, and guardrails
+      - Comprehensive distractor analysis individually breaking down why each alternative option fails in Pega
+      - Exam Pro-Tip / Key Takeaway providing a high-yield memory hook
+  - **Comprehensive Front Matter & Strategy Playbook**:
+    - Authored executive welcome from TechnoNexus Inc. and Nexus Academy.
+    - Documented official Pega CSA exam structure (60 questions, 90 minutes, 65% passing threshold).
+    - Detailed blueprint weightage breakdown across all 5 core pillars with mermaid architecture diagrams.
+    - Formulated the **TechnoNexus 3-Pass Exam Execution Playbook** (Pass 1: High-Velocity Sweep, Pass 2: Scenario Deep Dive & 4-step elimination, Pass 3: Verification & Sanity Check).
+  - **Automated Compilation & Test Suite**:
+    - Created `scripts/build_csa_study_guide.py` to compile CSVs and JSON into the master guide.
+    - Built `scripts/enrich_study_guide.py` containing 116 high-yield Pega CLSA concept rules.
+    - Implemented `scripts/verify_study_guide.py` automated test suite asserting 100% compliance across all 240 questions with zero generic fallbacks.
+    - Exported modular Set chapters into `_docs/study_guide/` (`00_front_matter.md`, `set_1` to `set_4`).
+
 - **2026-10-29 (Phase 5: 7-Question Free Preview Gate & $19.99 USD Buy Course Paywall)**:
   - **Freemium Gating Engine**:
     - Restricted unpaid access to first 7 questions of Set 1.

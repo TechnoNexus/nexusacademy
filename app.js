@@ -158,7 +158,7 @@
     } else {
       if (btnUnlockHeader) {
         btnUnlockHeader.classList.remove('unlocked');
-        if (unlockBtnText) unlockBtnText.textContent = 'Unlock Course ($19.99)';
+        if (unlockBtnText) unlockBtnText.textContent = 'Unlock ($19.99)';
       }
       if (courseAccessTag) {
         courseAccessTag.className = 'meta-tag trial-tag';

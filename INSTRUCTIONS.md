@@ -33,6 +33,7 @@ c:\AI\Utilities\pega-practise\
 ├── app.js                       <-- Complete interactive engine (3-attempt loop, Fisher-Yates shuffle, stats)
 ├── data.js                      <-- Zero-CORS standalone dataset (240 questions across 4 sets)
 ├── pega_questions.json          <-- Standard JSON export of the 240 questions
+├── Pega_CSA_Exam_Simulator_and_Architectural_Deep_Dive.md <-- Master 240-question publication-ready study companion (PDF source)
 │
 ├── build_final_dataset.py       <-- Master dataset compilation script (fixes, additions, 4-set distribution)
 ├── create_28_questions.py       <-- Script defining the 28 new high-yield scenario questions (IDs 213–240)
@@ -46,12 +47,17 @@ c:\AI\Utilities\pega-practise\
 │   └── udemy_practice_exam_all_240.csv (All 240 Questions Bank)
 │
 ├── scripts/
-│   └── export_udemy_csv.py      <-- Python generator for Udemy Practice Test CSV bulk uploader
+│   ├── export_udemy_csv.py      <-- Python generator for Udemy Practice Test CSV bulk uploader
+│   ├── build_csa_study_guide.py <-- Compiles 240 questions into publication-ready study companion
+│   ├── enrich_study_guide.py    <-- Deep Pega CLSA concept & distractor rationale engine
+│   └── verify_study_guide.py   <-- Automated test suite verifying 240 questions & markdown layout
 │
 └── _docs/                       <-- MANDATORY DOCUMENTATION REPOSITORY
     ├── architecture_and_state.md
     ├── build_log_and_roadmap.md
-    └── distribution_and_publishing_masterplan.md  <-- Complete playbook for publishing everywhere
+    ├── distribution_and_publishing_masterplan.md  <-- Complete playbook for publishing everywhere
+    ├── pega_csa_study_companion_and_deep_dive.md <-- Mirror copy of study companion
+    └── study_guide/             <-- Modular Set chapters (00_front_matter, set_1..set_4)
 ```
 
 ---
