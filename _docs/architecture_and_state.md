@@ -88,6 +88,20 @@ c:\AI\Utilities\pega-practise\
      - Reveals full Pega rationale and explanation.
      - Locks options from further attempts while allowing navigation.
 
+### Freemium Paywall & Monetization Architecture
+- **7-Question Free Preview Gate**:
+  - Unauthenticated/unpurchased visitors can practice the first 7 questions of Set 1 for free with full functionality (options, 3-attempt engine, explanations, bookmarking, and scoring).
+  - Navigation beyond Question 7 (via "Next", clicking tile 8..60 in Grid, or switching to Sets 2, 3, or 4) automatically triggers the **Paywall & Buy Course Modal**.
+  - Completing Question 7 (correct or revealed) automatically opens the upgrade modal after a 1.4-second celebration delay.
+- **Paywall / Buy Course Modal ($19.99 USD)**:
+  - Promotional pricing: $19.99 USD (discounted from $49.99 launch price).
+  - Feature highlights: All 240 questions, 4 mock exams, 65% benchmark, 3 attempts, offline PWA, 21 knowledge areas.
+  - Direct checkout action linking to digital storefront (`CHECKOUT_URL`).
+  - License/Access Code activation box supporting instant unlock validation with local persistence (`nexus_csa_unlocked_v1`).
+- **Access States**:
+  - `Free Trial`: Shows `🎁 Free Preview: 7 Questions` tag, `Unlock Course ($19.99)` button, locked grid tiles (`🔒`).
+  - `Pro Unlocked`: Shows `⭐ Full Access (240 Qs)` tag, `⭐ Pro Unlocked` button, zero restrictions across all 4 sets.
+
 ### Key Features
 - **Progressive Web App (PWA) & Offline Mobile Installation**: Installable directly on iOS, Android, and Desktop with `manifest.json`, Service Worker caching (`sw.js`), custom vector/PNG icons, and an active "Install App" prompt.
 - **240 Complete Scenarios & Knowledge Checks** covering all 21 Pega topics (212 from source PDF + 28 realistic author-created scenarios).

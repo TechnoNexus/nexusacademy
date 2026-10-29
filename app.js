@@ -4,6 +4,12 @@
 (function () {
   'use strict';
 
+  // Freemium Paywall Configuration (Course 1)
+  const FREE_QUESTIONS_LIMIT = 7;
+  const UNLOCK_STORAGE_KEY = 'nexus_csa_unlocked_v1';
+  const VALID_LICENSE_KEYS = ['NEXUS2026', 'NEXUS-CSA-PASS', 'TECHNO-NEXUS-1999', 'PASSCERT2026', 'FULLACCESS'];
+  let isCourseUnlocked = false;
+
   // Storage Keys
   const STORAGE_KEY = 'pega_academy_practice_state_v3';
   const THEME_KEY = 'pega_academy_theme';
@@ -111,6 +117,7 @@
   // Initialize Application
   function init() {
     loadTheme();
+    loadCourseUnlockState();
     loadUserState();
     loadActiveExamSet();
     initOrdering();
@@ -123,8 +130,95 @@
     initPWA();
   }
 
+  // Freemium Paywall & Unlock State Management
+  function loadCourseUnlockState() {
+    try {
+      const saved = localStorage.getItem(UNLOCK_STORAGE_KEY);
+      isCourseUnlocked = (saved === 'true');
+    } catch (e) {
+      isCourseUnlocked = false;
+    }
+    updateUnlockUI();
+  }
+
+  function updateUnlockUI() {
+    const btnUnlockHeader = document.getElementById('btn-unlock-header');
+    const unlockBtnText = document.getElementById('unlock-btn-text');
+    const courseAccessTag = document.getElementById('course-access-tag');
+
+    if (isCourseUnlocked) {
+      if (btnUnlockHeader) {
+        btnUnlockHeader.classList.add('unlocked');
+        if (unlockBtnText) unlockBtnText.textContent = '⭐ Pro Unlocked';
+      }
+      if (courseAccessTag) {
+        courseAccessTag.className = 'meta-tag pro-tag';
+        courseAccessTag.textContent = '⭐ Full Access (240 Qs)';
+      }
+    } else {
+      if (btnUnlockHeader) {
+        btnUnlockHeader.classList.remove('unlocked');
+        if (unlockBtnText) unlockBtnText.textContent = 'Unlock Course ($19.99)';
+      }
+      if (courseAccessTag) {
+        courseAccessTag.className = 'meta-tag trial-tag';
+        courseAccessTag.textContent = '🎁 Free Preview: 7 Questions';
+      }
+    }
+  }
+
+  function unlockCourse(key) {
+    const cleanKey = (key || '').trim().toUpperCase();
+    if (VALID_LICENSE_KEYS.includes(cleanKey)) {
+      isCourseUnlocked = true;
+      try {
+        localStorage.setItem(UNLOCK_STORAGE_KEY, 'true');
+      } catch (e) {}
+      updateUnlockUI();
+      renderCurrentQuestion();
+      renderQuestionGrid();
+      closePaywallModal();
+      showToast('🎉 Course Unlocked! All 240 questions and 4 mock exams are now accessible.');
+      return true;
+    } else {
+      const hint = document.getElementById('redeem-hint');
+      if (hint) {
+        hint.textContent = '❌ Invalid code. Please check your order code or access key.';
+        hint.style.color = '#ef4444';
+      }
+      return false;
+    }
+  }
+
+  function openPaywallModal(customMessage) {
+    const paywallModal = document.getElementById('paywall-modal-backdrop');
+    if (paywallModal) {
+      if (customMessage) {
+        const noticeP = paywallModal.querySelector('.paywall-preview-notice p');
+        if (noticeP) noticeP.textContent = customMessage;
+      }
+      paywallModal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closePaywallModal() {
+    const paywallModal = document.getElementById('paywall-modal-backdrop');
+    if (paywallModal) {
+      paywallModal.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+  }
+
   // Active Exam Set Management
   function loadActiveExamSet() {
+    if (!isCourseUnlocked) {
+      activeExamSet = '1';
+      if (examSetSelect) examSetSelect.value = '1';
+      refreshSetQuestionPool();
+      return;
+    }
+
     try {
       const urlParams = new URLSearchParams(window.location.search);
       const setParam = urlParams.get('set');
@@ -160,6 +254,11 @@
 
   function switchExamSet(newSet) {
     if (!['1', '2', '3', '4', 'all'].includes(newSet)) return;
+    if (!isCourseUnlocked && newSet !== '1') {
+      if (examSetSelect) examSetSelect.value = '1';
+      openPaywallModal("Practice Exam Sets 2, 3, and 4 are included in the Full Course ($19.99 USD). You can practice Questions 1–7 free in Set 1!");
+      return;
+    }
     activeExamSet = newSet;
     try {
       localStorage.setItem(ACTIVE_SET_KEY, activeExamSet);
@@ -410,7 +509,11 @@
       qSetBadge.textContent = q.exam_set ? `Set ${q.exam_set}` : 'General';
     }
 
-    qIndexBadge.textContent = `Question ${currentFilteredIndex + 1} of ${filteredQuestions.length} (ID #${q.id})`;
+    if (!isCourseUnlocked) {
+      qIndexBadge.textContent = `Question ${currentFilteredIndex + 1} of ${FREE_QUESTIONS_LIMIT} (Free Preview) [ID #${q.id}]`;
+    } else {
+      qIndexBadge.textContent = `Question ${currentFilteredIndex + 1} of ${filteredQuestions.length} (ID #${q.id})`;
+    }
     qCategoryPill.textContent = q.category;
 
     if (qOrderBadge) {
@@ -460,7 +563,25 @@
 
     // Navigation buttons state
     btnPrev.disabled = (currentFilteredIndex === 0);
-    btnNext.disabled = (currentFilteredIndex === filteredQuestions.length - 1);
+    if (!isCourseUnlocked && currentFilteredIndex === FREE_QUESTIONS_LIMIT - 1) {
+      btnNext.disabled = false;
+      btnNext.innerHTML = `
+        <span>Unlock Course ($19.99)</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path>
+        </svg>
+      `;
+      btnNext.classList.add('btn-unlock-header');
+    } else {
+      btnNext.disabled = (currentFilteredIndex === filteredQuestions.length - 1);
+      btnNext.innerHTML = `
+        <span>Next</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      `;
+      btnNext.classList.remove('btn-unlock-header');
+    }
 
     // Submit button state
     const isLocked = (qState.status === 'correct' || qState.status === 'revealed');
@@ -654,6 +775,13 @@
     updateOverallStats();
     renderCurrentQuestion();
     renderQuestionGrid();
+
+    // Freemium prompt: Trigger paywall when question 7 is completed
+    if (!isCourseUnlocked && currentFilteredIndex === FREE_QUESTIONS_LIMIT - 1 && (qState.status === 'correct' || qState.status === 'revealed')) {
+      setTimeout(() => {
+        openPaywallModal("You've completed all 7 Free Preview Scenarios! Upgrade to the Full Course ($19.99 USD) to practice all 4 mock exams and 240 questions.");
+      }, 1400);
+    }
   }
 
   // Empty state when filter produces 0 results
@@ -695,22 +823,31 @@
       const btn = document.createElement('button');
       btn.className = `grid-btn ${s.status}`;
       btn.textContent = idx + 1;
-      btn.title = `Q#${idx + 1} (ID #${q.id}): ${q.title} (${s.status})`;
       btn.dataset.id = q.id;
 
-      if (s.bookmarked) {
-        btn.classList.add('bookmarked');
-      }
+      if (!isCourseUnlocked && idx >= FREE_QUESTIONS_LIMIT) {
+        btn.classList.add('locked');
+        btn.title = `Q#${idx + 1} (Locked): Unlock Full Course ($19.99 USD)`;
+        btn.addEventListener('click', () => {
+          openPaywallModal(`Question #${idx + 1} is part of the Full Course. Upgrade for $19.99 USD to access all 240 questions across all 4 mock exams!`);
+          closeDrawer();
+        });
+      } else {
+        btn.title = `Q#${idx + 1} (ID #${q.id}): ${q.title} (${s.status})`;
+        if (s.bookmarked) {
+          btn.classList.add('bookmarked');
+        }
 
-      const currentQ = filteredQuestions[currentFilteredIndex];
-      if (currentQ && currentQ.id === q.id) {
-        btn.classList.add('current');
-      }
+        const currentQ = filteredQuestions[currentFilteredIndex];
+        if (currentQ && currentQ.id === q.id) {
+          btn.classList.add('current');
+        }
 
-      btn.addEventListener('click', () => {
-        navigateToQuestionById(q.id);
-        closeDrawer();
-      });
+        btn.addEventListener('click', () => {
+          navigateToQuestionById(q.id);
+          closeDrawer();
+        });
+      }
 
       questionsGrid.appendChild(btn);
     });
@@ -729,6 +866,11 @@
 
   function navigateToQuestionById(qId) {
     let idx = filteredQuestions.findIndex(q => q.id === qId);
+    if (!isCourseUnlocked && idx >= FREE_QUESTIONS_LIMIT) {
+      openPaywallModal(`Question #${idx + 1} is part of the Full Course. Upgrade for $19.99 USD to unlock all 240 questions!`);
+      return;
+    }
+
     if (idx === -1) {
       categorySelect.value = 'all';
       statusFilter.value = 'all';
@@ -738,6 +880,10 @@
       idx = filteredQuestions.findIndex(q => q.id === qId);
     }
     if (idx !== -1) {
+      if (!isCourseUnlocked && idx >= FREE_QUESTIONS_LIMIT) {
+        openPaywallModal();
+        return;
+      }
       currentFilteredIndex = idx;
       renderCurrentQuestion();
     }
@@ -1015,6 +1161,10 @@
     });
 
     btnNext.addEventListener('click', () => {
+      if (!isCourseUnlocked && currentFilteredIndex >= FREE_QUESTIONS_LIMIT - 1) {
+        openPaywallModal("You've completed the 7 free preview questions! Upgrade to the Full Course ($19.99 USD) to access all 240 questions across all 4 sets.");
+        return;
+      }
       if (currentFilteredIndex < filteredQuestions.length - 1) {
         currentFilteredIndex++;
         renderCurrentQuestion();
@@ -1131,9 +1281,45 @@
       });
     }
 
+    // Paywall Modal & Unlock Key Events
+    const btnUnlockHeader = document.getElementById('btn-unlock-header');
+    if (btnUnlockHeader) {
+      btnUnlockHeader.addEventListener('click', () => {
+        if (isCourseUnlocked) {
+          showToast('⭐ Pro Access Active: You have full lifetime access to all 240 questions.');
+        } else {
+          openPaywallModal();
+        }
+      });
+    }
+
+    const btnClosePaywall = document.getElementById('btn-close-paywall');
+    const paywallModalClose = document.getElementById('paywall-modal-close');
+    const paywallModalBackdrop = document.getElementById('paywall-modal-backdrop');
+    if (btnClosePaywall) btnClosePaywall.addEventListener('click', closePaywallModal);
+    if (paywallModalClose) paywallModalClose.addEventListener('click', closePaywallModal);
+    if (paywallModalBackdrop) {
+      paywallModalBackdrop.addEventListener('click', (e) => {
+        if (e.target === paywallModalBackdrop) closePaywallModal();
+      });
+    }
+
+    const btnRedeemKey = document.getElementById('btn-redeem-key');
+    const inputLicenseKey = document.getElementById('input-license-key');
+    if (btnRedeemKey && inputLicenseKey) {
+      btnRedeemKey.addEventListener('click', () => {
+        unlockCourse(inputLicenseKey.value);
+      });
+      inputLicenseKey.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          unlockCourse(inputLicenseKey.value);
+        }
+      });
+    }
+
     // Keyboard Shortcuts
     document.addEventListener('keydown', (e) => {
-      if (document.activeElement === searchInput) return;
+      if (document.activeElement === searchInput || (inputLicenseKey && document.activeElement === inputLicenseKey)) return;
 
       const key = e.key.toUpperCase();
 
@@ -1155,6 +1341,10 @@
         }
       }
       else if (e.key === 'ArrowRight') {
+        if (!isCourseUnlocked && currentFilteredIndex >= FREE_QUESTIONS_LIMIT - 1) {
+          openPaywallModal("You've completed the 7 free preview questions! Upgrade to the Full Course ($19.99 USD) to access all 240 questions.");
+          return;
+        }
         if (currentFilteredIndex < filteredQuestions.length - 1) {
           currentFilteredIndex++;
           renderCurrentQuestion();
@@ -1171,6 +1361,7 @@
         closeDrawer();
         closeModal();
         closeCoursesModal();
+        closePaywallModal();
       }
     });
   }

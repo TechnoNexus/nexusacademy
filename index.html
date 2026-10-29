@@ -56,6 +56,13 @@
       </div>
 
       <div class="header-actions">
+        <button id="btn-unlock-header" class="btn-icon btn-unlock-header" title="Unlock Full Course (240 Questions & 4 Mock Exams)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+          </svg>
+          <span class="btn-text" id="unlock-btn-text">Unlock Course ($19.99)</span>
+        </button>
+
         <button id="btn-courses-toggle" class="btn-icon btn-courses-toggle" title="View Nexus Academy Course Catalog">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
@@ -107,6 +114,7 @@
         <span class="course-name">Pega Certified System Architect (CSA) Scenario Simulator</span>
       </div>
       <div class="course-meta-tags">
+        <span class="meta-tag trial-tag" id="course-access-tag">🎁 Free Preview: 7 Questions</span>
         <span class="meta-tag">240 Scenario Questions</span>
         <span class="meta-tag">4 Mock Exams (60 Qs Each)</span>
         <span class="meta-tag highlight">Passing Benchmark: 65% (39/60)</span>
@@ -475,6 +483,118 @@
 
         <div class="modal-actions-footer">
           <button id="btn-close-courses-modal" class="btn btn-secondary">Close Catalog</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nexus Academy Paywall / Buy Course Modal -->
+  <div class="modal-backdrop" id="paywall-modal-backdrop" style="display: none;">
+    <div class="modal-card paywall-modal">
+      <div class="modal-header paywall-header">
+        <div class="paywall-header-tag">
+          <span class="pro-tag">⭐ NEXUS ACADEMY PRO</span>
+          <h3>Unlock All 240 Pega CSA Exam Scenarios</h3>
+        </div>
+        <button class="modal-close" id="paywall-modal-close">&times;</button>
+      </div>
+
+      <div class="modal-body paywall-body">
+        <div class="paywall-preview-notice">
+          <span class="lock-icon">🔒</span>
+          <div>
+            <strong>You've reached the end of the 7 Free Preview Questions!</strong>
+            <p>Upgrade to lifetime access to practice all 4 full mock exams, 240 audited questions, and comprehensive concept rationales.</p>
+          </div>
+        </div>
+
+        <!-- Pricing Card -->
+        <div class="paywall-pricing-card">
+          <div class="price-header">
+            <div class="price-left">
+              <span class="price-currency">$</span>
+              <span class="price-amount">19.99</span>
+              <span class="price-period">USD / Lifetime Access</span>
+            </div>
+            <div class="price-badge-discount">
+              <span class="original-price">$49.99</span>
+              <span class="discount-pill">60% OFF LAUNCH SALE</span>
+            </div>
+          </div>
+          <p class="price-subtext">One-time payment • No recurring monthly subscriptions • Instant unlock across all devices</p>
+        </div>
+
+        <!-- Features Checklist -->
+        <div class="paywall-features-grid">
+          <div class="paywall-feature-item">
+            <span class="feature-check">✓</span>
+            <div>
+              <strong>All 240 Audited Scenarios</strong>
+              <span>Full question bank partitioned across 4 balanced 60-question sets</span>
+            </div>
+          </div>
+          <div class="paywall-feature-item">
+            <span class="feature-check">✓</span>
+            <div>
+              <strong>Authentic 65% Benchmark</strong>
+              <span>Real-time pass/fail evaluation (39/60) matching Pearson VUE scoring</span>
+            </div>
+          </div>
+          <div class="paywall-feature-item">
+            <span class="feature-check">✓</span>
+            <div>
+              <strong>3-Attempt Feedback Engine</strong>
+              <span>Progressive hints mirroring Pega Academy before revealing technical rationale</span>
+            </div>
+          </div>
+          <div class="paywall-feature-item">
+            <span class="feature-check">✓</span>
+            <div>
+              <strong>Fisher-Yates Exam Shuffler</strong>
+              <span>Infinite randomized mock exams with 1-click reshuffle and persistence</span>
+            </div>
+          </div>
+          <div class="paywall-feature-item">
+            <span class="feature-check">✓</span>
+            <div>
+              <strong>Installable PWA App</strong>
+              <span>Works 100% offline on iPhone, Android, and Desktop from home screen</span>
+            </div>
+          </div>
+          <div class="paywall-feature-item">
+            <span class="feature-check">✓</span>
+            <div>
+              <strong>All 21 Syllabus Knowledge Areas</strong>
+              <span>Complete coverage from Routing & SLAs to ABAC Security & Constellation</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Direct Buy CTA -->
+        <div class="paywall-cta-section">
+          <a href="https://technonexus.gumroad.com/l/pegacsa" id="btn-buy-course" target="_blank" rel="noopener noreferrer" class="btn btn-buy-now">
+            <span>Buy Course — $19.99 USD</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+          </a>
+          <div class="secure-checkout-row">
+            <span>🔒 256-Bit Secure Checkout</span>
+            <span>⚡ Instant Automated Activation</span>
+            <span>⭐ Lifetime Access</span>
+          </div>
+        </div>
+
+        <!-- License / Unlock Key Redeem Section -->
+        <div class="license-redeem-box">
+          <span class="redeem-title">Already purchased or have an Access Code?</span>
+          <div class="redeem-input-row">
+            <input type="text" id="input-license-key" placeholder="Enter Access Code (e.g. NEXUS2026)" autocomplete="off" />
+            <button id="btn-redeem-key" class="btn btn-secondary">Activate</button>
+          </div>
+          <span class="redeem-hint" id="redeem-hint">Enter your order code or access key to unlock instantly.</span>
+        </div>
+
+        <div class="modal-actions-footer">
+          <button id="btn-close-paywall" class="btn btn-secondary">Back to Preview (7 Qs)</button>
         </div>
       </div>
     </div>

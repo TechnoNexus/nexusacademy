@@ -2,6 +2,19 @@
 
 ## Build Log
 
+- **2026-10-29 (Phase 5: 7-Question Free Preview Gate & $19.99 USD Buy Course Paywall)**:
+  - **Freemium Gating Engine**:
+    - Restricted unpaid access to first 7 questions of Set 1.
+    - Added dashed styling and lock icons (`🔒`) for Question Grid Navigator tiles 8 through 60.
+    - Built gating intercepts on `btnNext`, keyboard `ArrowRight`, question drawer navigation, and exam set switching.
+    - Added post-question-7 completion auto-trigger presenting the Paywall modal after answer resolution.
+  - **High-Converting Buy Course Modal & Checkout Integration**:
+    - Designed sales card featuring **$19.99 USD** promotional pricing (discounted from $49.99).
+    - Added comprehensive value matrix (all 4 sets, 240 questions, 65% benchmark, 3-attempt engine, offline PWA).
+    - Integrated direct checkout action button (`CHECKOUT_URL`).
+    - Implemented instant Access Code / License Key redemption mechanism (`NEXUS2026`, etc.) with local storage persistence (`nexus_csa_unlocked_v1`).
+    - Added dynamic UI indicators (`🎁 Free Preview: 7 Questions` vs `⭐ Full Access (240 Qs)`).
+
 - **2026-10-29 (Phase 5: Nexus Academy Platform Transformation & GitHub Remote Connection)**:
   - **Platform Architecture Rebranding**:
     - Rebranded application into **Nexus Academy** (`https://github.com/TechnoNexus/nexusacademy`).
