@@ -1,0 +1,2222 @@
+[
+  {
+    "id": 1,
+    "title": "Business Logic Update",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "Rule Delegation",
+    "explanation": "Delegation specifically allows business users to update dynamic business rules (like thresholds or decision tables) independently, without altering the core application code.",
+    "options": [
+      "Rule Versioning",
+      "Rule Delegation",
+      "Rule Reuse",
+      "Situational Layer Cake"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Fixing a Broken UI",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 2,
+    "chosen_ans": "Rule Versioning",
+    "explanation": "Pega maintains a history of changes for every individual Rule. Versioning allows you to review the history and revert (undo) changes to that specific Rule without breaking the rest of the application.",
+    "options": [
+      "Create a new Rule Type",
+      "App Studio background generation",
+      "Rule Versioning",
+      "Relevant Records"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Rule vs. Rule Type",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 2,
+    "chosen_ans": "The template is a Rule Type; the logic is a Rule.",
+    "explanation": "A Rule Type is the abstract template (like the concept of a Decision Table). The Rule is the actual, specific instance you created (the credit score routing logic) which defines the behavior for your application.",
+    "options": [
+      "The template is a Rule; the logic is a Rule Type.",
+      "Both the template and the logic are Rule Types.",
+      "The template is a Rule Type; the logic is a Rule.",
+      "Both the template and the logic are Rules."
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Versioning Choice",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 0,
+    "chosen_ans": "Patch version",
+    "explanation": "A typo is a defect/bug. Bugs are always fixed using a Patch version update (e.g., moving from 01-01-01 to 01-01-02).",
+    "options": [
+      "Patch version",
+      "Minor version",
+      "Major version",
+      "Base version"
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Naming Conventions",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 2,
+    "chosen_ans": "NAFinanceUI",
+    "explanation": "Option 1 uses the restricted \"Pega-\" prefix. Option 2 uses an underscore (special character). Option 4 uses spaces. Only Option 3 follows all best practices.",
+    "options": [
+      "Pega-NAFinanceUI",
+      "NAFinance_UI",
+      "NAFinanceUI",
+      "NA Finance UI"
+    ]
+  },
+  {
+    "id": 6,
+    "title": "The Ruleset Stack Functionality",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 2,
+    "chosen_ans": "The Ruleset Stack",
+    "explanation": "The Ruleset stack is unique to each application version and dictates the exact sequence Pega searches to find and apply the correct version of a Rule.",
+    "options": [
+      "The Major version number",
+      "The Application Layer",
+      "The Ruleset Stack",
+      "The Production Environment"
+    ]
+  },
+  {
+    "id": 7,
+    "title": "App Studio Background Generation",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "Section Rule",
+    "explanation": "In Pega, a visual \"View\" built in App Studio directly translates to a \"Section Rule\" in Dev Studio, which controls the user interface rendering.",
+    "options": [
+      "Flow Rule",
+      "Section Rule",
+      "Data Page",
+      "Action Rule"
+    ]
+  },
+  {
+    "id": 8,
+    "title": "The New Record Form",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 0,
+    "chosen_ans": "Rule Type, Ruleset, Apply to Class, Label",
+    "explanation": "The core requirements to define the uniqueness and context of a new rule in Dev Studio are its Type, its naming (Label), its class scope (Apply to), and its storage container (Ruleset).",
+    "options": [
+      "Rule Type, Ruleset, Apply to Class, Label",
+      "Rule Type, Process, Section, Label",
+      "Ruleset, Apply to Class, Label, Version",
+      ".pzInsKey, Ruleset, Class, Rule Type"
+    ]
+  },
+  {
+    "id": 9,
+    "title": "Identifying Unique Rules",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": ".pzInsKey",
+    "explanation": ".pzInsKey is the ultimate unique identifier (Instance Key) for any rule in Pega. It concatenates the rule type, class, name, and timestamp.",
+    "options": [
+      ".pyRuleName",
+      ".pzInsKey",
+      ".pxCreateDateTime",
+      ".pyID"
+    ]
+  },
+  {
+    "id": 10,
+    "title": "Identifying Class Types",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 2,
+    "chosen_ans": "Integration class",
+    "explanation": "The Integration class contains rules that describe how the application interacts with external systems.",
+    "options": [
+      "Work class",
+      "Data class",
+      "Integration class",
+      "Base class"
+    ]
+  },
+  {
+    "id": 11,
+    "title": "Rule Search (Hierarchy)",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "The rule in the TGB-Finance-Work-Expense class.",
+    "explanation": "Pega always starts searching for a rule from the most-specific class in the hierarchy before moving to more general parent classes.",
+    "options": [
+      "The rule in the TGB class.",
+      "The rule in the TGB-Finance-Work-Expense class.",
+      "It runs both rules sequentially.",
+      "It prompts the user to select the rule."
+    ]
+  },
+  {
+    "id": 12,
+    "title": "Parent/Child Inheritance",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "The child class automatically inherits and can reuse the rule from the parent class.",
+    "explanation": "Class inheritance ensures that a child class can reuse any rules defined in its parent class without needing to duplicate them.",
+    "options": [
+      "The developer must copy and paste the rule into the child class.",
+      "The child class automatically inherits and can reuse the rule from the parent class.",
+      "A special Integration rule must be created to link them.",
+      "Child cases cannot use parent rules."
+    ]
+  },
+  {
+    "id": 13,
+    "title": "Selecting the Right Layer for Reuse",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 2,
+    "chosen_ans": "Organization class",
+    "explanation": "The Organization class layer is specifically designed to hold rules (like data or integration) that need to be reused across all applications within the entire enterprise.",
+    "options": [
+      "Application class",
+      "Work class",
+      "Organization class",
+      "Base class"
+    ]
+  },
+  {
+    "id": 14,
+    "title": "Search Order Logic",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "Pattern inheritance first; the rule in TGB-HR-Work is applied.",
+    "explanation": "Pega always searches the Pattern inheritance path first before falling back to the Directed inheritance path.",
+    "options": [
+      "Directed inheritance first; the rule in Work-Cover is applied.",
+      "Pattern inheritance first; the rule in TGB-HR-Work is applied.",
+      "Both are searched simultaneously.",
+      "It skips to the @baseclass."
+    ]
+  },
+  {
+    "id": 15,
+    "title": "Inheriting Pega Standard Rules",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 2,
+    "chosen_ans": "Directed inheritance",
+    "explanation": "Directed inheritance is explicitly used to inherit standard Pega Platform rules and rules from outside your immediate business class hierarchy.",
+    "options": [
+      "Pattern inheritance",
+      "Framework inheritance",
+      "Directed inheritance",
+      "Organizational inheritance"
+    ]
+  },
+  {
+    "id": 16,
+    "title": "The Ultimate Base Class",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "Searches @baseclass; inherits from None",
+    "explanation": "@baseclass is the ultimate base class in Pega. It is the very last place Pega looks, and it inherits from absolutely nothing (None). (Note: Aapke page ke bottom par jo knowledge check hai \"From which class does @baseclass inherit Rules?\", uska answer bhi None hi hai!)",
+    "options": [
+      "Searches Work-; inherits from @baseclass",
+      "Searches @baseclass; inherits from None",
+      "Searches Pega-RULES; inherits from Work-",
+      "Searches @baseclass; inherits from Pega-RULES"
+    ]
+  },
+  {
+    "id": 17,
+    "title": "Bridging Dev Studio and App Studio",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "Mark the SLA rule as a relevant record from the Actions menu.",
+    "explanation": "Rules created in Dev Studio are not automatically visible in App Studio prompts. They must be manually designated as relevant records.",
+    "options": [
+      "Change the rule's class to the Organization layer.",
+      "Mark the SLA rule as a relevant record from the Actions menu.",
+      "Recreate the SLA directly in App Studio.",
+      "Save the SLA into a higher Ruleset version."
+    ]
+  },
+  {
+    "id": 18,
+    "title": "Automatic Promotion",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 0,
+    "chosen_ans": "Navigate to Dev Studio and manually mark them as relevant.",
+    "explanation": "When records like fields, views, or processes are created in App Studio, Pega Platform automatically marks them as relevant records.",
+    "options": [
+      "Navigate to Dev Studio and manually mark them as relevant.",
+      "No action is required.",
+      "Add the fields to the Enterprise reuse library.",
+      "Check the \"Reusable\" checkbox in the App Studio settings."
+    ]
+  },
+  {
+    "id": 19,
+    "title": "Deprecating Old Assets",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 2,
+    "chosen_ans": "Mark the relevant record as inactive for that class.",
+    "explanation": "Marking a relevant record as inactive removes it from the design-time selection prompts in App Studio without deleting the actual rule, ensuring existing runtime cases continue to function perfectly.",
+    "options": [
+      "Delete the rule and recover it if older cases crash.",
+      "Move the rule to a completely different Ruleset.",
+      "Mark the relevant record as inactive for that class.",
+      "Change the rule name to \"DO_NOT_USE_Address\"."
+    ]
+  },
+  {
+    "id": 20,
+    "title": "Identifying Shapes by Color/Function",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 2,
+    "chosen_ans": "Yellow Rectangle",
+    "explanation": "System automations (like sending an email or creating a case) are represented by yellow rectangles in a Pega Process diagram.",
+    "options": [
+      "Green Rectangle",
+      "Blue Rectangle",
+      "Yellow Rectangle",
+      "Orange Diamond"
+    ]
+  },
+  {
+    "id": 21,
+    "title": "Connector vs. Local Flow Action",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "Local Action",
+    "explanation": "A Local Action allows a user to update information or perform a task at an assignment without advancing the Case to the next shape in the process.",
+    "options": [
+      "Connector Action",
+      "Local Action",
+      "Subprocess Action",
+      "Decision Action"
+    ]
+  },
+  {
+    "id": 22,
+    "title": "Branching with Business Logic",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 3,
+    "chosen_ans": "An orange decision shape",
+    "explanation": "Decision shapes (orange diamonds) are used to automate complex decisions and create conditional paths (branching) based on business logic.",
+    "options": [
+      "A blue subprocess shape",
+      "A green assignment shape",
+      "A yellow automation shape",
+      "An orange decision shape"
+    ]
+  },
+  {
+    "id": 23,
+    "title": "Choosing the Right Rule",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "Decision Table",
+    "explanation": "Because there are multiple conditions and the expected result is a specific value (Manager, Director, VP) rather than a simple True/False, a Decision table is the correct choice.",
+    "options": [
+      "When Rule",
+      "Decision Table",
+      "Process Flow",
+      "Data Page"
+    ]
+  },
+  {
+    "id": 24,
+    "title": "The Failsafe Mechanism",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 3,
+    "chosen_ans": "The system returns the result configured in the Otherwise row.",
+    "explanation": "The Otherwise row acts as a catch-all. If no specific rows match the input data, the Decision table always returns the Otherwise result to ensure the process can continue without crashing.",
+    "options": [
+      "The system throws a fatal error and stops processing.",
+      "The system returns a Null value.",
+      "The system loops back to the first row.",
+      "The system returns the result configured in the Otherwise row."
+    ]
+  },
+  {
+    "id": 25,
+    "title": "Business Agility & Maintenance",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "Delegate the discount Decision table to the marketing manager.",
+    "explanation": "Delegation empowers Process owners (like the marketing manager) to update specific rules, such as decision tables, directly in the production environment to adapt to changing business conditions quickly.",
+    "options": [
+      "Create a new Framework layer for the marketing manager.",
+      "Delegate the discount Decision table to the marketing manager.",
+      "Configure a Local Flow Action for the marketing manager.",
+      "Set the Decision table to evaluate all rows."
+    ]
+  },
+  {
+    "id": 26,
+    "title": "The Authority Matrix",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "Check the \"Evaluate all rows\" option on the Results tab.",
+    "explanation": "Enabling the \"Evaluate all rows\" check box ensures that Pega evaluates every row in the table. If multiple rows evaluate to true, all corresponding actions (like adding multiple approvers to a matrix) are executed.",
+    "options": [
+      "Place the Decision table in a Subprocess.",
+      "Check the \"Evaluate all rows\" option on the Results tab.",
+      "Add an \"Otherwise\" row for the CFO.",
+      "Mark the Decision table as a relevant record."
+    ]
+  },
+  {
+    "id": 27,
+    "title": "Automated Assignment Routing",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "A Decision table router",
+    "explanation": "A Decision table router evaluates the logic (the zip code) and automatically determines the appropriate operator or Work Queue for an Assignment.",
+    "options": [
+      "A Process Decision shape",
+      "A Decision table router",
+      "The Evaluate all rows setting",
+      "A delegated When rule"
+    ]
+  },
+  {
+    "id": 28,
+    "title": "Table vs. Tree Selection",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 0,
+    "chosen_ans": "When Rule",
+    "explanation": "When logic requires nested conditions (where the next question depends entirely on the answer to the previous question",
+    "options": [
+      "When Rule",
+      "Decision Table",
+      "Decision Tree",
+      "Process Modeler"
+    ]
+  },
+  {
+    "id": 29,
+    "title": "Choosing the Right Tool (Same Properties)",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "Decision Table",
+    "explanation": "Because the exact same set of properties is being evaluated for every case to determine an outcome, a Decision Table is the most efficient choice.",
+    "options": [
+      "Decision Tree",
+      "Decision Table",
+      "When Rule",
+      "Authority Matrix"
+    ]
+  },
+  {
+    "id": 30,
+    "title": "The Consequence of Wrong Selection",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 3,
+    "chosen_ans": "The Decision Tree will fail to return a value.",
+    "explanation": "When you use a Decision Tree to evaluate the exact same properties, you are forced to recreate the same condition branches repeatedly for different value combinations, causing unnecessary duplication.",
+    "options": [
+      "The system will throw a routing error.",
+      "The configuration will result in many empty boxes.",
+      "The configuration will result in duplicate Conditions.",
+      "The Decision Tree will fail to return a value."
+    ]
+  },
+  {
+    "id": 31,
+    "title": "Technical Limitations",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 2,
+    "chosen_ans": "Decision Table",
+    "explanation": "In Pega, building an authority matrix for cascading approvals exclusively requires a Decision Table (using the \"Evaluate all rows\" feature). Decision trees do not support this specific configuration.",
+    "options": [
+      "Decision Tree",
+      "Process Subprocess",
+      "Decision Table",
+      "Delegated When Rule"
+    ]
+  },
+  {
+    "id": 32,
+    "title": "Identifying a Conflict",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "Show conflicts",
+    "explanation": "\"Show conflicts\" identifies unreachable rows. Because 800 is greater than 600, Row 1 evaluates to true first and stops the execution, meaning the > 750 condition in Row 2 is completely unreachable.",
+    "options": [
+      "Show completeness",
+      "Show conflicts",
+      "Tracer tool",
+      "Rule delegation"
+    ]
+  },
+  {
+    "id": 33,
+    "title": "The Exception to the Rule",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 2,
+    "chosen_ans": "The \"Evaluate all rows\" check box is selected.",
+    "explanation": "When \"Evaluate all rows\" is checked, Pega forces the evaluation of every single row regardless of previous true results, meaning no row is \"unreachable,\" so conflict warnings are not generated.",
+    "options": [
+      "The table is marked as a Relevant Record.",
+      "The \"Show completeness\" button was clicked first.",
+      "The \"Evaluate all rows\" check box is selected.",
+      "The Otherwise row is left blank."
+    ]
+  },
+  {
+    "id": 34,
+    "title": "Ensuring All Scenarios are Handled",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "Show completeness",
+    "explanation": "\"Show completeness\" analyzes the property being tested and automatically suggests adding rows or branches for any values (like Sales and General) that have not been explicitly handled in the logic.",
+    "options": [
+      "Show conflicts",
+      "Show completeness",
+      "Pattern inheritance",
+      "App Studio background generation"
+    ]
+  },
+  {
+    "id": 35,
+    "title": "Default Stage Behavior",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 2,
+    "chosen_ans": "The Stage will execute normally because Stages never skip by default.",
+    "explanation": "By default, a Stage never skips. If no conditional logic is applied, the Case will enter and execute the Stage normally.",
+    "options": [
+      "The case will throw a routing error.",
+      "The Stage will automatically skip because no condition was defined.",
+      "The Stage will execute normally because Stages never skip by default.",
+      "The system will pause and ask the user if they want to run the Stage."
+    ]
+  },
+  {
+    "id": 36,
+    "title": "Skipping a Process",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 0,
+    "chosen_ans": "Add a condition to the Process to skip when DamageType = \"Glass Only\".",
+    "explanation": "Because Processes always start by default, you must configure a specific condition directly on the Process to tell the system to skip it when the data matches your exception (Glass Only).",
+    "options": [
+      "Add a condition to the Process to skip when DamageType = \"Glass Only\".",
+      "Change the default behavior of the Stage to \"Always Skip\".",
+      "Create a Decision Tree inside the Process to end it immediately.",
+      "Mark the Process as an optional action instead."
+    ]
+  },
+  {
+    "id": 37,
+    "title": "Combining Conditions",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "You build a single condition using multiple fields and comparators linked by an AND operator.",
+    "explanation": "You can easily build complex logic by stacking multiple conditions (Field + Comparator + Value) together using AND/OR logic directly in the Process configuration.",
+    "options": [
+      "You must create two separate Processes.",
+      "You build a single condition using multiple fields and comparators linked by an AND operator.",
+      "You must use a Dev Studio Decision Table.",
+      "You place one condition on the Stage and the other on the Process."
+    ]
+  },
+  {
+    "id": 38,
+    "title": "Action vs. Process",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 0,
+    "chosen_ans": "Add a Case-wide Optional User Action.",
+    "explanation": "Because modifying a reservation requires a series of multiple steps (date selection, price confirmation, payment), it must be configured as an Optional Process rather than a single-screen Optional User Action.",
+    "options": [
+      "Add a Case-wide Optional User Action.",
+      "Add a Stage-only Optional User Action.",
+      "Add an Optional Process.",
+      "Configure a local flow action on the current assignment."
+    ]
+  },
+  {
+    "id": 39,
+    "title": "Determining the Scope",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 0,
+    "chosen_ans": "Configure a Case-wide Optional Action and use a When rule to hide it.",
+    "explanation": "When an optional task is only relevant during a specific portion of the case's lifecycle, it should be configured as a Stage-only Optional Action to ensure it is only accessible when appropriate.",
+    "options": [
+      "Configure a Case-wide Optional Action and use a When rule to hide it.",
+      "Configure a Stage-only Optional Action in the Underwriting Stage.",
+      "Add an Alternate Stage to the Case Life Cycle.",
+      "Configure a Skip Process condition on the Underwriting Stage."
+    ]
+  },
+  {
+    "id": 40,
+    "title": "Promoted Actions Limitation",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 2,
+    "chosen_ans": "Pega Platform only supports promoting Optional User Actions, not Optional Processes.",
+    "explanation": "Pega has a strict limitation: only single-step Optional User Actions can be promoted to the Case page as buttons. Optional Processes are not supported for promotion.",
+    "options": [
+      "The \"Cancel Policy\" must be Case-wide to be promoted.",
+      "Only Case managers can see promoted actions.",
+      "Pega Platform only supports promoting Optional User Actions, not Optional Processes.",
+      "The Actions menu must be disabled first."
+    ]
+  },
+  {
+    "id": 41,
+    "title": "Bridging the Business-IT Gap",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "By providing a common visual language that both stakeholders and developers can understand.",
+    "explanation": "Low-code platforms replace text-heavy code with visual models, creating a shared language that allows stakeholders to focus on business logic rather than technical implementation.",
+    "options": [
+      "By requiring business users to learn Java.",
+      "By providing a common visual language that both stakeholders and developers can understand.",
+      "By removing the need for a development team entirely.",
+      "By automating the creation of business requirements documents."
+    ]
+  },
+  {
+    "id": 42,
+    "title": "Omnichannel Delivery",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "By using omnichannel development features to build the logic once and deploy it across all required channels.",
+    "explanation": "Pega allows developers to unify their activities. You define the data and process rules once, and the platform can render the application across multiple channels simultaneously.",
+    "options": [
+      "By requiring the development team to write three separate applications.",
+      "By using omnichannel development features to build the logic once and deploy it across all required channels.",
+      "By only supporting web-based channels by default.",
+      "By purchasing a separate third-party integration for the chatbot."
+    ]
+  },
+  {
+    "id": 43,
+    "title": "Developer Productivity",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 0,
+    "chosen_ans": "Low-code platforms restrict professional developers from building complex logic.",
+    "explanation": "Low-code increases productivity for everyone. It frees up professional developers from writing repetitive boilerplate code, allowing them to focus their expertise on solving complex, custom business problems.",
+    "options": [
+      "Low-code platforms restrict professional developers from building complex logic.",
+      "Professional developers are not allowed to use Pega's low-code tools.",
+      "Low-code tools allow professional developers to build and extend robust applications more rapidly by streamlining everyday development tasks.",
+      "Low-code completely eliminates the need for professional developers."
+    ]
+  },
+  {
+    "id": 44,
+    "title": "Best Practice for Development",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 3,
+    "chosen_ans": "Either studio, as there is no preferred best practice.",
+    "explanation": "Pega best practices dictate that even advanced technical team members should work in App Studio whenever possible to minimize programming errors and speed up development.",
+    "options": [
+      "Dev Studio, because it provides more control.",
+      "App Studio, because it handles behind-the-scenes configuration and reduces errors.",
+      "Admin Studio, because creating data objects is an administrative task.",
+      "Either studio, as there is no preferred best practice."
+    ]
+  },
+  {
+    "id": 45,
+    "title": "System Monitoring",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 0,
+    "chosen_ans": "Admin Studio",
+    "explanation": "Admin Studio is the dedicated software administration space managed by IT staff for monitoring, debugging, and managing runtime system resources.",
+    "options": [
+      "Admin Studio",
+      "App Studio",
+      "Dev Studio",
+      "Prediction Studio"
+    ]
+  },
+  {
+    "id": 46,
+    "title": "Using Artificial Intelligence",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 3,
+    "chosen_ans": "Prediction Studio",
+    "explanation": "Prediction Studio is specifically designed for data scientists to build, train, and manage machine-learning, predictive, and text analytics models.",
+    "options": [
+      "Dev Studio",
+      "App Studio",
+      "Admin Studio",
+      "Prediction Studio"
+    ]
+  },
+  {
+    "id": 47,
+    "title": "The Architect's Workspace",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 0,
+    "chosen_ans": "Dev Studio, because they are a technical team member.",
+    "explanation": "Pega best practices strictly dictate that even technical experts should use App Studio for standard configurations to minimize programming errors.",
+    "options": [
+      "Dev Studio, because they are a technical team member.",
+      "App Studio, to reduce potential errors and auto-generate rules.",
+      "Admin Studio, to ensure database compliance.",
+      "Prediction Studio, to predict field types."
+    ]
+  },
+  {
+    "id": 48,
+    "title": "Agile Traceability",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 0,
+    "chosen_ans": "Application Profile",
+    "explanation": "The Application Profile captures user stories, bugs, and feedback items to support agile development and end-to-end traceability.",
+    "options": [
+      "Application Profile",
+      "Application Layers Widget",
+      "Theme Cosmos",
+      "Dev Studio"
+    ]
+  },
+  {
+    "id": 49,
+    "title": "Identifying UI Architectures",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "Traditional UI architecture",
+    "explanation": "The Traditional UI architecture uses the Theme Cosmos Ruleset and is built upon the older Section-based user interface structure, whereas Constellation uses View-based architecture.",
+    "options": [
+      "Constellation architecture",
+      "Traditional UI architecture",
+      "Mobile-first architecture",
+      "App Studio architecture"
+    ]
+  },
+  {
+    "id": 50,
+    "title": "Differentiating the Model and the Instance",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 0,
+    "chosen_ans": "A Case Type",
+    "explanation": "The overall workflow is the Case Type (the abstract model), while the specific, individual ticket (TKT-992) generated for the employee is the Case (the instance).",
+    "options": [
+      "A Case Type",
+      "A Case",
+      "A Microjourney",
+      "A Process"
+    ]
+  },
+  {
+    "id": 51,
+    "title": "Naming Stages Correctly",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "Document Review",
+    "explanation": "Stages should use a noun or noun phrase. You can test it: \"This case is in Document Review\" makes grammatical sense, whereas \"This case is in Review Document\" (Verb + Noun) does not.",
+    "options": [
+      "Reviewing Documents",
+      "Document Review",
+      "Review Document",
+      "HR Reviews Documents"
+    ]
+  },
+  {
+    "id": 52,
+    "title": "Naming Steps Correctly",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "Approve Expense",
+    "explanation": "Steps (and Processes) must use the Verb + Noun naming convention. \"Approve\" is the verb, and \"Expense\" is the noun.",
+    "options": [
+      "Manager Approval",
+      "Approve Expense",
+      "Expense Approval",
+      "Approval"
+    ]
+  },
+  {
+    "id": 53,
+    "title": "Using the Correct Step Type",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "A Change Stage Automation Step",
+    "explanation": "The Change Stage Automation step is specifically designed to transition a Case directly to a target stage, which is the standard method for routing into Alternate Stages.",
+    "options": [
+      "A Subprocess Step",
+      "A Change Stage Automation Step",
+      "An Optional User Action",
+      "A Decision Table Step"
+    ]
+  },
+  {
+    "id": 54,
+    "title": "Enabling Backward Movement",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 2,
+    "chosen_ans": "Enable the \"Allow users to go back to the previous step\" option in the Process settings.",
+    "explanation": "The \"Previous\" button is hidden by default. It must be explicitly enabled within the Process settings to allow users to navigate backward through completed steps within that Process.",
+    "options": [
+      "Add a \"Change Stage\" step pointing to the previous stage.",
+      "Add a Local Flow Action to the assignment.",
+      "Enable the \"Allow users to go back to the previous step\" option in the Process settings.",
+      "Add a \"Previous\" step to the Case Life Cycle."
+    ]
+  },
+  {
+    "id": 55,
+    "title": "Knowing the Limitations",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "The configuration will fail because Stage transitions cannot be configured on the Create Stage.",
+    "explanation": "Pega Platform enforces a strict rule: Stage transitions are not permitted to be configured on the Create Stage of a Case Life Cycle.",
+    "options": [
+      "The system will prompt them for an authority matrix.",
+      "The configuration will fail because Stage transitions cannot be configured on the Create Stage.",
+      "The Case will successfully skip to the final stage.",
+      "The Case will become stuck in an infinite loop."
+    ]
+  },
+  {
+    "id": 56,
+    "title": "Single User vs. Multiple Users",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 2,
+    "chosen_ans": "No, because a Multi-step Form represents a single assignment completed by a single user.",
+    "explanation": "A Multi-step Form is strictly for one user completing one assignment. Because this scenario involves a hand-off between an employee and a manager, it requires separate assignments, not a Multi-step Form.",
+    "options": [
+      "Yes, using a horizontal navigation style.",
+      "Yes, because both steps are part of the same review process.",
+      "No, because a Multi-step Form represents a single assignment completed by a single user.",
+      "No, because Multi-step Forms cannot contain text fields for comments."
+    ]
+  },
+  {
+    "id": 57,
+    "title": "Creating the Initial Case",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "Nothing, the default Create Process in the Create Stage is already a Multi-step Form.",
+    "explanation": "Pega automatically sets up the default Create Process as a Multi-step Form, making it easy to capture initial data across multiple Views without additional complex configuration.",
+    "options": [
+      "Delete the default process and add a Change Stage step.",
+      "Nothing, the default Create Process in the Create Stage is already a Multi-step Form.",
+      "Add an Optional Process to the Create Stage.",
+      "Configure an Alternate Stage for the second screen."
+    ]
+  },
+  {
+    "id": 58,
+    "title": "Navigation Flexibility",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "They can use the Previous button or navigation menu to go back to the Income view, as the form hasn't been submitted yet.",
+    "explanation": "Multi-step Forms inherently allow users to navigate back and forth between Views to review or change data at any point prior to the final submission.",
+    "options": [
+      "They must submit the application and start a new one.",
+      "They can use the Previous button or navigation menu to go back to the Income view, as the form hasn't been submitted yet.",
+      "They must ask an administrator to unlock the previous step.",
+      "They have to use a Case-wide Optional Action."
+    ]
+  },
+  {
+    "id": 59,
+    "title": "Testing Incomplete Work",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "Draft mode",
+    "explanation": "Draft mode is specifically designed to allow developers to test the run-time behavior of a Case Type even when configurations are incomplete or throwing design-time errors.",
+    "options": [
+      "Admin Studio debugging tools",
+      "Draft mode",
+      "Guardrail overrides",
+      "Optional Processes"
+    ]
+  },
+  {
+    "id": 60,
+    "title": "Preparing for Deployment",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "Draft mode must be turned off to avoid severe guardrail violations.",
+    "explanation": "Leaving processes in draft mode is a major guardrail violation. It must be turned off on all process flows prior to a production release.",
+    "options": [
+      "Nothing, draft mode automatically disables itself in Production.",
+      "Draft mode must be turned off to avoid severe guardrail violations.",
+      "Draft mode must be enabled to ensure proper error logging.",
+      "The processes must be moved to the Organization layer."
+    ]
+  },
+  {
+    "id": 61,
+    "title": "Resolving Errors",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 3,
+    "chosen_ans": "The application must have an authority matrix configured.",
+    "explanation": "In App Studio, Pega Platform only switches off draft mode automatically during a save if all underlying process errors and incomplete configurations have been completely resolved.",
+    "options": [
+      "The developer must first manually toggle it in Dev Studio.",
+      "The processes must not contain any configuration issues or errors.",
+      "The Case Type must be locked by a System Architect.",
+      "The application must have an authority matrix configured."
+    ]
+  },
+  {
+    "id": 62,
+    "title": "Queue vs. List Routing",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "To the Tier 1 Support Work Queue",
+    "explanation": "When work can be completed by any member of a team and does not require a specific individual, it should be routed to the team's shared Work Queue.",
+    "options": [
+      "To the Manager's Worklist",
+      "To the Tier 1 Support Work Queue",
+      "To an available Operator's Worklist",
+      "To the Organization layer"
+    ]
+  },
+  {
+    "id": 63,
+    "title": "Bypassing Organizational Hierarchy",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 2,
+    "chosen_ans": "Associate all the required operators with a new cross-functional Work Group.",
+    "explanation": "Work Groups allow you to group operators together into cross-functional teams to share a Work Queue without affecting their actual organizational hierarchy or business unit association.",
+    "options": [
+      "Move all employees to a new Division in the system.",
+      "Create a new Application Layer for them.",
+      "Associate all the required operators with a new cross-functional Work Group.",
+      "Give them all Manager access."
+    ]
+  },
+  {
+    "id": 64,
+    "title": "Manager Limitations",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 3,
+    "chosen_ans": "The system will prevent it, as authorized managers cannot perform approvals.",
+    "explanation": "While authorized managers can help transfer assignments and manage the workload, Pega strictly prevents them from performing formal approval tasks meant for the primary Work Group manager.",
+    "options": [
+      "The system will prompt them for their password.",
+      "The system will process the approval normally.",
+      "The approval will be routed to the CEO.",
+      "The system will prevent it, as authorized managers cannot perform approvals."
+    ]
+  },
+  {
+    "id": 65,
+    "title": "Avoiding Team Interference",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "Branches",
+    "explanation": "Branches allow development teams to work in isolated, independent containers (Branch Rulesets). They can develop simultaneously and merge their respective changes into the main application only when finished.",
+    "options": [
+      "Workspaces",
+      "Branches",
+      "Guardrails",
+      "Application Profiles"
+    ]
+  },
+  {
+    "id": 66,
+    "title": "Pre-Merge Requirements",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 2,
+    "chosen_ans": "Both teams must resolve any conflicts detected between their Branch and the main application.",
+    "explanation": "The system will automatically check for overlapping changes. Teams are strictly required to resolve all merge conflicts before Pega allows the Branch to be merged into the main application.",
+    "options": [
+      "They must delete their Workspaces.",
+      "Only Team A needs to resolve conflicts, and Team B can merge directly.",
+      "Both teams must resolve any conflicts detected between their Branch and the main application.",
+      "They must bypass guardrail warnings."
+    ]
+  },
+  {
+    "id": 68,
+    "title": "Responding on the Go",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "They can reply directly to the Pulse email notification, and the system will add the response as a comment.",
+    "explanation": "Pega allows users to respond to Pulse messages directly from their email notifications without requiring them to log into the platform, speeding up case resolution.",
+    "options": [
+      "They must download the Pega mobile app.",
+      "They can reply directly to the Pulse email notification, and the system will add the response as a comment.",
+      "They must call the employee to have them enter the comment on their behalf.",
+      "They must wait until they can log in via a web browser."
+    ]
+  },
+  {
+    "id": 69,
+    "title": "Categorizing Cases",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 3,
+    "chosen_ans": "Assign all the cases to the manager's Worklist.",
+    "explanation": "Tags allow users to categorize cases. When users click a specific tag in the Tags widget, it displays all cases containing that tag, making it easy to group related information.",
+    "options": [
+      "Add a #SoftwareBug Tag to a Pulse message in each related case.",
+      "Use the Toggle developer collaboration icon.",
+      "Create a new Alternate Stage for bugs.",
+      "Assign all the cases to the manager's Worklist."
+    ]
+  },
+  {
+    "id": 70,
+    "title": "Developer vs. User Access",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 2,
+    "chosen_ans": "The Toggle developer collaboration icon in the App Studio header.",
+    "explanation": "While application users use the Pulse widget, developers use the specific \"Toggle developer collaboration\" icon located in the upper-right corner of the App Studio header to communicate.",
+    "options": [
+      "The Tags widget on the full case page.",
+      "The Pulse widget on the user portal navigation bar.",
+      "The Toggle developer collaboration icon in the App Studio header.",
+      "The Dev Studio configuration menu."
+    ]
+  },
+  {
+    "id": 71,
+    "title": "The Order of Evaluation",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 2,
+    "chosen_ans": "No, because the Basic Condition was not met.",
+    "explanation": "The system evaluates Basic Conditions first. If the Basic Condition (Date of Incident) does not match, the system stops evaluating that specific record entirely. The weighted conditions are never checked.",
+    "options": [
+      "Yes, because the total weighted score (60) exceeds the threshold (50).",
+      "Yes, because the patient name matches exactly.",
+      "No, because the Basic Condition was not met.",
+      "No, because the Threshold should be set to 100."
+    ]
+  },
+  {
+    "id": 72,
+    "title": "Reaching the Threshold",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 0,
+    "chosen_ans": "The case is flagged as a potential duplicate.",
+    "explanation": "The matching weighted conditions are Last Name (25) + Zip Code (20) = 45. Since 45 does not meet or exceed the threshold of 50, it is not flagged as a potential duplicate.",
+    "options": [
+      "The case is flagged as a potential duplicate.",
+      "The case is NOT flagged as a potential duplicate.",
+      "The case is automatically resolved as Resolved-Duplicate.",
+      "The system prompts the user to adjust the weights."
+    ]
+  },
+  {
+    "id": 73,
+    "title": "The Final Decision",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "It pauses the Case and displays the three potential duplicates for the user to review and decide.",
+    "explanation": "The system does not automatically resolve duplicates. It flags them and presents them to the end-user, who must manually evaluate and choose to either resolve the current case or ignore the matches.",
+    "options": [
+      "It automatically deletes the current Case.",
+      "It pauses the Case and displays the three potential duplicates for the user to review and decide.",
+      "It automatically resolves all three existing cases.",
+      "It sends an email to the system administrator."
+    ]
+  },
+  {
+    "id": 74,
+    "title": "Parent-Child Resolution Dependency",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "It must wait and cannot be resolved until the Property Appraisal child case is also resolved.",
+    "explanation": "A fundamental rule of case hierarchy in Pega is that a parent case is suspended and cannot proceed to resolution until every single child case associated with it has been successfully resolved.",
+    "options": [
+      "It resolves automatically since one child case is done.",
+      "It must wait and cannot be resolved until the Property Appraisal child case is also resolved.",
+      "It cancels the remaining child case.",
+      "It enters an Alternate Stage."
+    ]
+  },
+  {
+    "id": 75,
+    "title": "Snapshot vs Reference",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 2,
+    "chosen_ans": "Use a Data Transform to copy the data when the case resolves.",
+    "explanation": "When data needs to remain synchronized and any updates in the parent must be visible in the child, referencing the data is the correct approach. Data propagation (a snapshot) would only copy the address as it was on day one and ignore future updates.",
+    "options": [
+      "Propagate the data as a snapshot in the Create Case step.",
+      "Reference the data from the parent case.",
+      "Use a Data Transform to copy the data when the case resolves.",
+      "Add a Wait step to the parent case."
+    ]
+  },
+  {
+    "id": 76,
+    "title": "The Business Value of Child Cases",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 2,
+    "chosen_ans": "It allows the verification process to be reused across multiple different parent case types (Auto and Personal).",
+    "explanation": "Building a specific business process as a standalone child case type makes it highly reusable. It can be instantiated by any number of different parent case types that require that specific functionality.",
+    "options": [
+      "It forces the compliance team to use the App Studio.",
+      "It ensures the verification is done by the same person processing the loan.",
+      "It allows the verification process to be reused across multiple different parent case types (Auto and Personal).",
+      "It prevents parallel processing."
+    ]
+  },
+  {
+    "id": 77,
+    "title": "The Skipping Wait Step",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "The \"Background Check\" child Case was not instantiated (created) before the parent case reached the Wait Step.",
+    "explanation": "For a Case Dependency wait type to function, the dependent child case must already exist. If there is no child case to wait upon when the shape is reached, the flow automatically skips it.",
+    "options": [
+      "The Wait Step was configured as a Timer instead of a Case Dependency.",
+      "The \"Background Check\" child Case was not instantiated (created) before the parent case reached the Wait Step.",
+      "The user did not click \"Submit\" on the previous assignment.",
+      "The Wait Step is not supported in App Studio."
+    ]
+  },
+  {
+    "id": 78,
+    "title": "Applying the Right Timer",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "Use a Timer wait step set to a fixed interval of 48 hours.",
+    "explanation": "When you need to pause a process for a specific, set amount of elapsed time (like hours or minutes) rather than a dynamic date variable, a Timer wait step configured with a fixed interval is the correct choice.",
+    "options": [
+      "Use a Case Dependency wait step linked to the email.",
+      "Use a Timer wait step set to a fixed interval of 48 hours.",
+      "Configure a Service Level Agreement (SLA) instead of a Wait step.",
+      "Use a Timer wait step set to a Reference date/time."
+    ]
+  },
+  {
+    "id": 79,
+    "title": "Wait Step vs. Assignment",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 2,
+    "chosen_ans": "An Assignment Step (User Action)",
+    "explanation": "Waiting for a user to complete a task (like an approval or filling out a form) is an Assignment step awaiting a User Action. It is distinctly different from a deliberately configured system Wait Step.",
+    "options": [
+      "A Case Dependency Wait Step",
+      "A Timer Wait Step",
+      "An Assignment Step (User Action)",
+      "An Optional Process"
+    ]
+  },
+  {
+    "id": 80,
+    "title": "Replacing Legacy Systems",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "Configuration Sets",
+    "explanation": "Configuration settings provide a modern, low-code alternative to Dynamic System Settings (DSS), offering enhanced functionality and much easier maintenance directly from App Studio.",
+    "options": [
+      "Decision Tables",
+      "Configuration Sets",
+      "Application Profiles",
+      "Work Queues"
+    ]
+  },
+  {
+    "id": 81,
+    "title": "Avoiding Code Changes",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 2,
+    "chosen_ans": "Store the threshold amount in a Configuration setting and reference it in the Condition Builder.",
+    "explanation": "By referencing a Configuration setting in the Condition Builder, the business can update the threshold value on the Settings landing page whenever they want, entirely avoiding custom rule overrides and code deployments.",
+    "options": [
+      "Hardcode the limit in a Dev Studio Data Page.",
+      "Delegate a When rule to the CFO.",
+      "Store the threshold amount in a Configuration setting and reference it in the Condition Builder.",
+      "Set up a Timer Wait Step."
+    ]
+  },
+  {
+    "id": 82,
+    "title": "Role-Based Access",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "They only have Read access to the setting.",
+    "explanation": "By default, standard Managers have Read/Write/Delete access to the Configuration Sets, but they only have Read access to the actual Configuration settings (Data-Configuration-Setting).",
+    "options": [
+      "They can Read, Write, and Delete it.",
+      "They only have Read access to the setting.",
+      "They cannot view the setting at all.",
+      "They can Write to it, but not Delete it."
+    ]
+  },
+  {
+    "id": 83,
+    "title": "Timing of the Validation",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 0,
+    "chosen_ans": "Validation on the Create Stage.",
+    "explanation": "When you need to ensure specific conditions are met before allowing a Case to transition into a new phase of the lifecycle, a Stage entry validation is the correct choice.",
+    "options": [
+      "Validation on the Create Stage.",
+      "Validation on a Stage.",
+      "Validation on a Form.",
+      "A Field Type control."
+    ]
+  },
+  {
+    "id": 84,
+    "title": "Immediate Correction",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 0,
+    "chosen_ans": "Validation on a Stage.",
+    "explanation": "Because the user can immediately fix the data entry error on the current screen, configuring the business logic validation on the form (triggered upon submission) is the best practice.",
+    "options": [
+      "Validation on a Stage.",
+      "Validation on a Form.",
+      "A Wait Step timer.",
+      "A Case Workflow Dependency."
+    ]
+  },
+  {
+    "id": 85,
+    "title": "Pattern Matching & Security",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "Edit Validate Rule; it introduces a potential security risk due to custom Java.",
+    "explanation": "Edit Validate rules use Java code to compare a property value to a defined pattern. Because it uses custom Java, it represents a potential security/guardrail risk.",
+    "options": [
+      "Validate Rule; it runs on the server.",
+      "Edit Validate Rule; it introduces a potential security risk due to custom Java.",
+      "Validation Function; it checks attachments.",
+      "Field Type control; it runs client-side."
+    ]
+  },
+  {
+    "id": 86,
+    "title": "Checking for Attachments",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 2,
+    "chosen_ans": "Use a Validation Function within a Validate Rule.",
+    "explanation": "Checking whether a specific type of attachment is uploaded to a case is a complex operation that requires a Validation Function, which is available in the Validate rule form in Dev Studio.",
+    "options": [
+      "Use an Edit Validate rule on the file property.",
+      "Set the attachment field to \"Required\" in App Studio.",
+      "Use a Validation Function within a Validate Rule.",
+      "Use a Case Dependency wait step."
+    ]
+  },
+  {
+    "id": 88,
+    "title": "The Overwritten Rule Trap",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "Manual modifications to pySetFieldDefaults are overwritten by the system when Views are configured.",
+    "explanation": "Pega auto-generates and manages the pySetFieldDefaults rule based on View configurations. Manually editing it is a violation of best practices because the system will overwrite it, erasing custom work.",
+    "options": [
+      "The citizen developer purposefully deleted it.",
+      "Manual modifications to pySetFieldDefaults are overwritten by the system when Views are configured.",
+      "pyDefault takes precedence and deleted the rule.",
+      "The Data Transform was not locked."
+    ]
+  },
+  {
+    "id": 89,
+    "title": "Using the Operator Profile",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "The Operator record (OperatorID clipboard page)",
+    "explanation": "The user's specific details (name, organization unit, email) are stored on their Operator record. Data Transforms (like pyDefault) commonly reference the OperatorID page to initialize user-specific data.",
+    "options": [
+      "The Primary Page",
+      "The Operator record (OperatorID clipboard page)",
+      "The Organization Layer",
+      "A static Configuration Set"
+    ]
+  },
+  {
+    "id": 90,
+    "title": "The Right Tool for the Job",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 0,
+    "chosen_ans": "The Data initialization page in App Studio.",
+    "explanation": "Pega best practices recommend using the Data initialization page on the Case Type's Settings tab for standard default values, resorting to manually editing pyDefault only for complex scenarios.",
+    "options": [
+      "The Data initialization page in App Studio.",
+      "A Pre-processing action on the first step.",
+      "An Edit Validate rule.",
+      "Manually modifying pySetFieldDefaults."
+    ]
+  },
+  {
+    "id": 91,
+    "title": "Dynamic Date Calculations",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "Use the @addCalendar function within the pyDefault Data Transform.",
+    "explanation": "When default values require dynamic calculations (like adding days to the current date), you must use Expressions and Functions within a Data Transform like pyDefault.",
+    "options": [
+      "Use a Wait Step timer.",
+      "Use the @addCalendar function within the pyDefault Data Transform.",
+      "Set a fixed date in the Data initialization page.",
+      "Use an Edit Validate rule."
+    ]
+  },
+  {
+    "id": 92,
+    "title": "Manipulating Data in Transit",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 0,
+    "chosen_ans": "On the Action tab of the Case Type.",
+    "explanation": "Dev Studio allows developers to apply Data Transforms directly on the flow connectors that link shapes, executing the logic as the case transitions.",
+    "options": [
+      "On the Action tab of the Case Type.",
+      "In the pySetFieldDefaults rule.",
+      "On the Connector properties between the Review and Approval shapes.",
+      "In a Configuration Set."
+    ]
+  },
+  {
+    "id": 96,
+    "title": "Naming Conventions",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 2,
+    "chosen_ans": "The architect forgot to add a Wait step.",
+    "explanation": "For the superclass feature to locate and combine the rules across the hierarchy, the Data Transforms at every level must share the exact same rule name.",
+    "options": [
+      "The option is not supported for initialization.",
+      "Data Transforms must have the exact same name at each class level to use the superclass feature.",
+      "The architect forgot to add a Wait step.",
+      "The \"Call superclass\" option must be checked on the parent, not the subclass."
+    ]
+  },
+  {
+    "id": 97,
+    "title": "Choosing the Right Scope",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 2,
+    "chosen_ans": "Node",
+    "explanation": "Since the list of country codes is identical for every single user using the application, setting the scope to Node ensures the data is only loaded into memory once and shared by everyone, saving system resources.",
+    "options": [
+      "Thread",
+      "Requestor",
+      "Node",
+      "System"
+    ]
+  },
+  {
+    "id": 98,
+    "title": "The Right Edit Mode",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 0,
+    "chosen_ans": "Read-Only",
+    "explanation": "Read-Only prevents the application from manipulating the data on the page, ensuring it acts strictly as an unaltered view of the system of record.",
+    "options": [
+      "Read-Only",
+      "Editable",
+      "Savable",
+      "Protected"
+    ]
+  },
+  {
+    "id": 99,
+    "title": "Locating List Data",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "D_AvailableFlights.pxResults(2)",
+    "explanation": "When a Data Page uses a list structure, Pega automatically embeds the retrieved items into an ordered array specifically named pxResults.",
+    "options": [
+      "D_AvailableFlights.List(2)",
+      "D_AvailableFlights.pxResults(2)",
+      "D_AvailableFlights[2]",
+      "D_AvailableFlights.Page(2)"
+    ]
+  },
+  {
+    "id": 100,
+    "title": "Fallback Logic",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "Set the Condition for the final listed data source to 'Otherwise'.",
+    "explanation": "When configuring conditional data sourcing, Pega requires the final data source to be configured with the condition 'Otherwise' to guarantee a data source is identified if all preceding conditions evaluate to false.",
+    "options": [
+      "Add a Data Transform to Source A.",
+      "Set the Condition for the final listed data source to 'Otherwise'.",
+      "Change the Data Page structure to List.",
+      "Select the Aggregate sources option."
+    ]
+  },
+  {
+    "id": 101,
+    "title": "The Mapping Requirement",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "The developer must select the 'Limit to a single Data Page' checkbox.",
+    "explanation": "Because a Report Definition naturally returns a list of results, using it to source a single 'Page' structure requires a Data Transform to explicitly map how that data fits into the single-record data model.",
+    "options": [
+      "The developer must configure a Data Transform to map the response.",
+      "The developer must select the 'Limit to a single Data Page' checkbox.",
+      "The developer must change the Data Page scope to Node.",
+      "The developer must use a Lookup instead."
+    ]
+  },
+  {
+    "id": 103,
+    "title": "The \"Older Than\" Timing Trap",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 0,
+    "chosen_ans": "9:15 AM",
+    "explanation": "The \"Reload if older than\" strategy only marks the data as stale after the interval (at 9:15 AM). It does not automatically reload the data in the background. The actual reload happens upon the next user access, which in this case is 10:00 AM.",
+    "options": [
+      "9:15 AM",
+      "9:30 AM",
+      "10:00 AM",
+      "It continuously streams data every 15 minutes."
+    ]
+  },
+  {
+    "id": 104,
+    "title": "The \"Do Not Reload\" Logic",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "True",
+    "explanation": "If the \"Do not reload when\" condition evaluates to True, Pega considers the current clipboard data to be fresh and skips the reload process.",
+    "options": [
+      "False",
+      "True",
+      "Null",
+      "0"
+    ]
+  },
+  {
+    "id": 105,
+    "title": "Scope Limitations",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "\"Reload once per interaction\" is only available for Thread or Requestor scoped pages.",
+    "explanation": "Pega restricts the \"Reload once per interaction\" setting to Thread and Requestor scopes to prevent excessive performance hits on server-wide Node-scoped data.",
+    "options": [
+      "Country codes are not dynamic.",
+      "\"Reload once per interaction\" is only available for Thread or Requestor scoped pages.",
+      "They must write a Java step to enable it.",
+      "Node level pages require an Aggregate source."
+    ]
+  },
+  {
+    "id": 107,
+    "title": "Always Up-to-Date",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 0,
+    "chosen_ans": "Copy data from a Data Page",
+    "explanation": "When a Case always needs the most current data available from an external system of record, referring to the Data Page ensures the data is dynamically fetched and never becomes stale historic data within the Case.",
+    "options": [
+      "Copy data from a Data Page",
+      "Aggregate data sources",
+      "Refer to a Data Page",
+      "Manual data entry"
+    ]
+  },
+  {
+    "id": 108,
+    "title": "The Display vs Value Configuration",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 0,
+    "chosen_ans": "Set both Display text and Value to the ISO code.",
+    "explanation": "Pega allows UI controls to display user-friendly text while storing system-friendly codes/values behind the scenes.",
+    "options": [
+      "Set both Display text and Value to the ISO code.",
+      "Set the Property for display text to the Currency Name, and the Property for value to the ISO code.",
+      "Configure an Edit Validate rule to convert the string.",
+      "Copy the entire list to the Data Model."
+    ]
+  },
+  {
+    "id": 109,
+    "title": "Memory Optimization",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "1 (Only the selected product)",
+    "explanation": "To optimize memory, when a list is sourced from a Data Page in a UI control, only the single value selected by the user is actually copied into the Case's Data Model.",
+    "options": [
+      "5,000",
+      "1 (Only the selected product)",
+      "0 (The list is strictly referred to)",
+      "It depends on the Data Page scope."
+    ]
+  },
+  {
+    "id": 110,
+    "title": "Parallel Development",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "Use a simulated external data source with sample credit scores.",
+    "explanation": "Simulating the data source allows the Pega team to use sample data to continue building and testing the application interface and workflow independently of the external system's readiness.",
+    "options": [
+      "Wait for the API to be completed.",
+      "Use a simulated external data source with sample credit scores.",
+      "Change the Data Page scope to Node.",
+      "Use a Report Definition instead."
+    ]
+  },
+  {
+    "id": 111,
+    "title": "The Prerequisite",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "You must know what data the source is expecting and returning to create a valid simulation.",
+    "explanation": "A simulation requires mapping dummy data to a specific structure. If the expected request and response data structures are completely unknown, a simulation cannot be accurately configured.",
+    "options": [
+      "Pega cannot simulate brand new vendors.",
+      "You must know what data the source is expecting and returning to create a valid simulation.",
+      "Simulations require a Node-scoped Data Page.",
+      "The simulation must be done in Dev Studio only."
+    ]
+  },
+  {
+    "id": 112,
+    "title": "The Auto-Populate Pitfall",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "Using \"Refer\" causes accidental overwrites before saving; the developer must use \"Copy data from a Data Page\" instead.",
+    "explanation": "Pega strictly cautions against using the \"Refer\" option when auto-populating from a Savable Data Page, as it can lead to accidental data overwrites before the save is triggered. \"Copy\" must be used.",
+    "options": [
+      "The database lock was lost; change the lock timeout.",
+      "Using \"Refer\" causes accidental overwrites before saving; the developer must use \"Copy data from a Data Page\" instead.",
+      "The save plan is missing an Activity.",
+      "The Data Page scope should be Node."
+    ]
+  },
+  {
+    "id": 113,
+    "title": "Ensuring Data Integrity",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "Built-in transaction handling (roll back)",
+    "explanation": "Transaction handling ensures that if any part of the save operation fails (like a network outage to the HR system), the changes to all systems roll back to their previous state, preventing out-of-sync errors. Arre, my bad! Main notes ko thoda chhota aur crisp rakhne ki koshish kar raha tha, par aap bilkul sahi keh rahe hain. Pega exam mein scenario-based questions hi sabse zyada aate hain, toh 3-4 scenarios practice karna bohot zaroori hai. Aage se main har topic ke liye strictly 3-4 high-quality exam scenarios hi doonga. Promise! Is kami ko poora karne ke liye, aaiye is current topic (Savable Data Pages) ke 2 aur naye Pega exam scenarios aapke notes mein add kar lete hain: 📝 Google Keep Note: Pega Exam Scenarios (Savable Data Pages) - Extended",
+    "options": [
+      "Data Transform mapping",
+      "Built-in transaction handling (roll back)",
+      "Node-level scope caching",
+      "Robotic Desktop Automation"
+    ]
+  },
+  {
+    "id": 114,
+    "title": "Multiple Save Options with When Rules",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "Configure two save options (Database save and Connector) and use a When condition on the Connector option to check if Severity = Critical.",
+    "explanation": "Savable Data Pages allow you to specify multiple data save options. You can associate a When condition with each option so Pega dynamically decides which save method(s) to execute based on the case data.",
+    "options": [
+      "Use an Activity with a Java step to check the severity.",
+      "Configure two save options (Database save and Connector) and use a When condition on the Connector option to check if Severity = Critical.",
+      "Create two separate Savable Data Pages.",
+      "Use the Robotic Automation save option."
+    ]
+  },
+  {
+    "id": 116,
+    "title": "Implicit Parameter Passing",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 0,
+    "chosen_ans": "In the Save Data Page automation step configuration pane.",
+    "explanation": "When using the implicit \"Use associated property\" option, any parameters required by the Data Page are passed directly from the property Rule itself, rather than from the Save Data Page automation step.",
+    "options": [
+      "In the Save Data Page automation step configuration pane.",
+      "In the Property Rule form for EmployeeRecord.",
+      "In the Data Transform mapped to the save plan.",
+      "In the Data Page's Load Management tab."
+    ]
+  },
+  {
+    "id": 118,
+    "title": "Multiple Commits",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 2,
+    "chosen_ans": "Add multiple Save Data Page Automation steps to the flow.",
+    "explanation": "To commit updates to multiple distinct data sources at a specific point in a Case, Pega best practices dictate adding multiple, sequential Save Data Page automation steps to the flow.",
+    "options": [
+      "Add a single Save Data Page step and select two Data Pages.",
+      "Use an Activity with multiple Java steps.",
+      "Add multiple Save Data Page Automation steps to the flow.",
+      "Use a Node-scoped Savable Data Page."
+    ]
+  },
+  {
+    "id": 119,
+    "title": "Adding Audit Context",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 0,
+    "chosen_ans": "In the Audit note field on the automation step configuration pane.",
+    "explanation": "The Save Data Page automation step includes an \"Audit note\" field, allowing developers to easily append history/audit details to the Case whenever the save action is executed.",
+    "options": [
+      "In the Audit note field on the automation step configuration pane.",
+      "In a separate Send Email automation step.",
+      "In the Parameters section of the explicit Data Page call.",
+      "In the Data initialization page."
+    ]
+  },
+  {
+    "id": 120,
+    "title": "AIC Triad Identification",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "Integrity",
+    "explanation": "Integrity prevents unauthorized individuals from modifying systems or data. Since the data was altered, integrity was compromised.",
+    "options": [
+      "Availability",
+      "Integrity",
+      "Confidentiality",
+      "Auditing"
+    ]
+  },
+  {
+    "id": 121,
+    "title": "Authentication vs. Authorization",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 0,
+    "chosen_ans": "Authentication",
+    "explanation": "The user is already verified (Authentication), but their specific access control to a feature/interface (Authorization) restricts them from seeing the approval action.",
+    "options": [
+      "Authentication",
+      "Authorization",
+      "Data Encryption",
+      "Guardrail Compliance"
+    ]
+  },
+  {
+    "id": 123,
+    "title": "Deployment Blocker",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 0,
+    "chosen_ans": "The team did not complete the Security Checklist.",
+    "explanation": "Deployment Manager is designed to automatically block applications from being deployed in production if the Security Checklist tasks are not completed.",
+    "options": [
+      "The team did not complete the Security Checklist.",
+      "The application has too many data pages.",
+      "The auditing feature was turned off.",
+      "An external identity provider is offline."
+    ]
+  },
+  {
+    "id": 124,
+    "title": "Differentiating Security Levels",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 0,
+    "chosen_ans": "Application-level security",
+    "explanation": "Controlling access to specific data, features, and cases based on a user's role (Manager vs. Director) is the definition of Feature security. Application-level security only handles the initial login.",
+    "options": [
+      "Application-level security",
+      "Feature security",
+      "Auditing security",
+      "Multi-factor authentication"
+    ]
+  },
+  {
+    "id": 125,
+    "title": "The Operator Disablement Exception",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 0,
+    "chosen_ans": "Change the global disablement policy to 365 days.",
+    "explanation": "The Exclusion list allows you to exempt specific critical accounts from the automated inactivity disablement policy.",
+    "options": [
+      "Change the global disablement policy to 365 days.",
+      "Disable the Operator disablement policy entirely.",
+      "Add the SysAdmin operator ID to the Exclusion list of operator IDs.",
+      "Write a custom Activity to reset the timer for that user."
+    ]
+  },
+  {
+    "id": 126,
+    "title": "Categorizing MFA Factors",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "Knowledge and Being",
+    "explanation": "A password is something the user knows (Knowledge), and a fingerprint is an inherent physical characteristic of the user (Being).",
+    "options": [
+      "Knowledge and Possession",
+      "Knowledge and Being",
+      "Possession and Being",
+      "Knowledge and Auditing"
+    ]
+  },
+  {
+    "id": 128,
+    "title": "Data Privacy Compliance",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 2,
+    "chosen_ans": "Client-based access control (CBAC)",
+    "explanation": "CBAC is specifically designed to handle data privacy regulations like GDPR, allowing the system to track and process requests to view, update, or remove personal customer data.",
+    "options": [
+      "Role-based access control (RBAC)",
+      "Attribute-based access control (ABAC)",
+      "Client-based access control (CBAC)",
+      "Single Sign-On (SSO)"
+    ]
+  },
+  {
+    "id": 129,
+    "title": "Granular Data Restriction",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 0,
+    "chosen_ans": "ABAC",
+    "explanation": "Because access is being restricted by comparing the characteristics of the object (Claim State) to the attributes of the user (Assigned State), Attribute-based access control (ABAC) is the correct model.",
+    "options": [
+      "ABAC",
+      "RBAC",
+      "CBAC",
+      "Authentication"
+    ]
+  },
+  {
+    "id": 130,
+    "title": "Single Sign-On",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 0,
+    "chosen_ans": "Authorization",
+    "explanation": "Verifying identity and managing credentials across multiple systems via SSO is an Authentication process, not Authorization.",
+    "options": [
+      "Authorization",
+      "Role-based access control (RBAC)",
+      "Client-based access control (CBAC)",
+      "Authentication (Specifically SSO using SAML/OpenID)"
+    ]
+  },
+  {
+    "id": 131,
+    "title": "Feature Toggling",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "RBAC",
+    "explanation": "Access to specific features, tools, and UI elements based on the user's role (QA vs End-User) is managed using Role-based access control (RBAC).",
+    "options": [
+      "ABAC",
+      "RBAC",
+      "CBAC",
+      "Multi-factor authentication"
+    ]
+  },
+  {
+    "id": 132,
+    "title": "Resolving Conflicting Permissions",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 2,
+    "chosen_ans": "The manager can approve the order because Pega applies the most permissive setting.",
+    "explanation": "When an Access Group contains multiple roles with conflicting permissions, Pega evaluates all roles and grants access if at least one role allows the action (most permissive).",
+    "options": [
+      "The system throws an error due to conflicting rules.",
+      "The manager cannot approve the order because App:User restricts it.",
+      "The manager can approve the order because Pega applies the most permissive setting.",
+      "The manager must manually select which role to use before approving."
+    ]
+  },
+  {
+    "id": 133,
+    "title": "Routing to the Correct Portal",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "The Access Group",
+    "explanation": "Access Groups define the default Channel interface (such as a Work Portal or Admin Studio) that the user will see upon successful authentication.",
+    "options": [
+      "The Operator ID",
+      "The Access Group",
+      "The Access Role",
+      "The Persona"
+    ]
+  },
+  {
+    "id": 134,
+    "title": "Modular Security Design",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 0,
+    "chosen_ans": "By allowing Access Groups to reference multiple granular Access Roles.",
+    "explanation": "By allowing an Access Group to reference multiple smaller, granular roles, developers can mix and match roles (like building blocks) to meet complex security needs without duplicating configurations.",
+    "options": [
+      "By allowing Access Groups to reference multiple granular Access Roles.",
+      "By applying Attribute-based access control (ABAC) automatically.",
+      "By copying all privileges directly to the Operator ID.",
+      "By limiting each Access Group to a single, monolithic Access Role."
+    ]
+  },
+  {
+    "id": 136,
+    "title": "The Production Level Math",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 2,
+    "chosen_ans": "No, because the Staging environment has a Production Level of 4, and the Access Control value (3) is not greater than or equal to 4.",
+    "explanation": "Staging is Level 4. The user's access level is 3. Since 3 is NOT greater than or equal to 4, the access is denied.",
+    "options": [
+      "Yes, because Auditors always have update access.",
+      "Yes, because 3 is less than the Staging level.",
+      "No, because the Staging environment has a Production Level of 4, and the Access Control value (3) is not greater than or equal to 4.",
+      "No, because access levels cannot be applied to Staging."
+    ]
+  },
+  {
+    "id": 138,
+    "title": "Choosing the Right Workspace",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "The Dev Studio Access Manager.",
+    "explanation": "While App Studio is the best practice for general access, certain advanced permissions, such as deleting a Case instance, can only be granted from the Access Manager in Dev Studio.",
+    "options": [
+      "The App Studio User management landing page.",
+      "The Dev Studio Access Manager.",
+      "The Case Type settings tab.",
+      "The Operator ID record."
+    ]
+  },
+  {
+    "id": 140,
+    "title": "Custom Condition vs. When Rule",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 0,
+    "chosen_ans": "Use a Custom Condition on all three screens.",
+    "explanation": "Because the same logic is reused in multiple places throughout the application, a When Rule is the best practice for maintainability, rather than writing a one-off Custom Condition three separate times.",
+    "options": [
+      "Use a Custom Condition on all three screens.",
+      "Use a When Rule and apply it to all three screens.",
+      "Set visibility to 'If not blank'.",
+      "Set the field to Disabled."
+    ]
+  },
+  {
+    "id": 141,
+    "title": "Data Integrity via UI",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 2,
+    "chosen_ans": "Disabled = Always",
+    "explanation": "Setting the Disabled attribute to Always ensures the data is displayed to the user on the screen but restricts them from modifying it.",
+    "options": [
+      "Visibility = Always",
+      "Required = Never",
+      "Disabled = Always",
+      "Disabled = Custom Condition"
+    ]
+  },
+  {
+    "id": 142,
+    "title": "Conditional Requirements",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 0,
+    "chosen_ans": "Required = Always",
+    "explanation": "The field shouldn't always be required (because what if they chose Phone?). It should only become mandatory based on the specific selection, which is handled by a Custom Condition (or When rule) for the Required attribute.",
+    "options": [
+      "Required = Always",
+      "Required = Custom Condition (If Preferred Method == Email)",
+      "Visibility = If not blank",
+      "Disabled = Never"
+    ]
+  },
+  {
+    "id": 143,
+    "title": "Handling Empty Data",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 0,
+    "chosen_ans": "If not blank",
+    "explanation": "The If not blank visibility setting automatically hides a field if it contains no data, reducing visual clutter on review screens.",
+    "options": [
+      "If not blank",
+      "Custom Condition",
+      "Never",
+      "If not zero"
+    ]
+  },
+  {
+    "id": 144,
+    "title": "Understanding User Intent",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "Intelligent Virtual Assistant (IVA)",
+    "explanation": "Pega IVA is designed to parse conversational language across digital channels (like SMS or webchat) to determine user intent and trigger the appropriate application response.",
+    "options": [
+      "Email Bot",
+      "Intelligent Virtual Assistant (IVA)",
+      "A Data Transform",
+      "Attribute-based access control (ABAC)"
+    ]
+  },
+  {
+    "id": 145,
+    "title": "Automating Email Processing",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 2,
+    "chosen_ans": "Pega Email Bot",
+    "explanation": "The Pega Email Bot is specifically designed to detect the intent of incoming emails, extract relevant entities (like order numbers), and automate case creation or responses.",
+    "options": [
+      "Web Portal Channel",
+      "Pega Intelligent Virtual Assistant for Webchat",
+      "Pega Email Bot",
+      "Facebook Messenger Channel"
+    ]
+  },
+  {
+    "id": 146,
+    "title": "Channel-Specific Case Creation",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "Add a Channel-specific process to a Stage in the Case Life Cycle.",
+    "explanation": "Pega allows developers to configure channel-specific processes directly within the Case Life Cycle, allowing commands from channels like WhatsApp to trigger specific cases.",
+    "options": [
+      "Create an entirely separate Pega application for WhatsApp.",
+      "Add a Channel-specific process to a Stage in the Case Life Cycle.",
+      "Configure a Save Data Page automation step.",
+      "Use an Access Deny rule."
+    ]
+  },
+  {
+    "id": 151,
+    "title": "Dashboard Organization",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 0,
+    "chosen_ans": "The chart is a Region that must be placed inside a Widget.",
+    "explanation": "Dashboards follow a strict hierarchy: Templates define the layout by creating Regions, and Regions act as the containers where Widgets (like the pie chart) are placed.",
+    "options": [
+      "The chart is a Region that must be placed inside a Widget.",
+      "The chart is a Widget that must be placed inside a Region, which is defined by the Template.",
+      "The chart is a Template that creates a new Region.",
+      "The chart is an Access Group that must be shared."
+    ]
+  },
+  {
+    "id": 154,
+    "title": "Personalization vs. Consistency",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "Yes, dashboard templates allow both developers and users to organize widgets differently to increase individual productivity.",
+    "explanation": "A key benefit of Pega dashboards is that they allow end-users to personalize their work areas (like adding or reorganizing widgets) to maximize their own efficiency, without needing a developer.",
+    "options": [
+      "No, only developers can modify dashboard templates to ensure strict consistency.",
+      "Yes, dashboard templates allow both developers and users to organize widgets differently to increase individual productivity.",
+      "Yes, but only if the user has a System Administrator role.",
+      "No, widgets are hardcoded into the Portal design."
+    ]
+  },
+  {
+    "id": 155,
+    "title": "Team Collaboration",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "Pulse",
+    "explanation": "Pulse is the primary OOTB collaboration tool in Pega that allows users to keep posts, comments, and attachments consolidated in one place.",
+    "options": [
+      "Case History",
+      "Pulse",
+      "App announcement",
+      "To do"
+    ]
+  },
+  {
+    "id": 156,
+    "title": "Distinguishing Work Lists",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 2,
+    "chosen_ans": "Set to \"Work Queue\"",
+    "explanation": "Unassigned work items that belong to a group of users are stored in a Work Queue. The \"To do\" widget must be configured to display the Work Queue to see these items.",
+    "options": [
+      "Set to \"My Worklist\"",
+      "Set to \"Worklist of team members\"",
+      "Set to \"Work Queue\"",
+      "Replace it with the Related Cases widget"
+    ]
+  },
+  {
+    "id": 157,
+    "title": "Application Updates",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "App announcement",
+    "explanation": "The App announcement widget allows developers to display customized text and formatted button links to external content, making it perfect for 'What's New' or update messages.",
+    "options": [
+      "Pulse",
+      "App announcement",
+      "Quick create",
+      "Case History"
+    ]
+  },
+  {
+    "id": 158,
+    "title": "Finding the Audit Trail",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 2,
+    "chosen_ans": "The Case History widget in the Utilities pane.",
+    "explanation": "The Case History widget, located in the expandable Utilities pane of the Full Case View, shows the detailed audit trail of assignments in a tabular form.",
+    "options": [
+      "The App announcement widget on the Home page.",
+      "The Pulse widget.",
+      "The Case History widget in the Utilities pane.",
+      "The Stakeholders widget."
+    ]
+  },
+  {
+    "id": 159,
+    "title": "Cross-Platform Consistency",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 0,
+    "chosen_ans": "Design tokens",
+    "explanation": "Design tokens are specifically used as a strategy for storing component styling aspects in one place so the system automatically generates consistent, platform-specific styling.",
+    "options": [
+      "Design tokens",
+      "Access Groups",
+      "Conversational Channels",
+      "WCAG Guidelines"
+    ]
+  },
+  {
+    "id": 160,
+    "title": "The Inheritance Limitation",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "It failed because Themes do not support inheritance; resolve by saving and updating a copy of the Enterprise theme into a higher Ruleset.",
+    "explanation": "Pega themes do not support standard inheritance. To specialize a theme for a specific application, the best practice is to save a copy of the Enterprise theme into a higher Ruleset and make the updates there.",
+    "options": [
+      "It failed because themes must be defined in Dev Studio; resolve by switching studios.",
+      "It failed because Themes do not support inheritance; resolve by saving and updating a copy of the Enterprise theme into a higher Ruleset.",
+      "It failed because the font size is locked by WCAG; resolve by changing the design tokens.",
+      "It failed because of an Access Deny rule."
+    ]
+  },
+  {
+    "id": 161,
+    "title": "Ensuring Accessibility",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 0,
+    "chosen_ans": "The colors fail to meet Web Content Accessibility Guidelines (WCAG) contrast requirements.",
+    "explanation": "App Studio provides built-in accessibility checks that automatically flag color combinations that fail WCAG contrast guidelines, ensuring high-quality, readable apps.",
+    "options": [
+      "The colors fail to meet Web Content Accessibility Guidelines (WCAG) contrast requirements.",
+      "Black and grey are not supported design tokens.",
+      "The COE layer is blocking the color change.",
+      "The user does not have the correct Persona to change colors."
+    ]
+  },
+  {
+    "id": 163,
+    "title": "Differentiating Work Item Types",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 2,
+    "chosen_ans": "Feedback",
+    "explanation": "Enhancement requests and suggestions identified during playback sessions are documented as Feedback items in Agile Workbench.",
+    "options": [
+      "Bug",
+      "Story",
+      "Feedback",
+      "Task"
+    ]
+  },
+  {
+    "id": 166,
+    "title": "Bulk Work Item Creation",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 0,
+    "chosen_ans": "Import user stories directly from an Excel file.",
+    "explanation": "Agile Workbench allows users to save time by uploading user stories in bulk directly from Excel files.",
+    "options": [
+      "Import user stories directly from an Excel file.",
+      "Write a custom Data Transform to parse CSV records.",
+      "Use a Savable Data Page with a REST connector.",
+      "User stories cannot be created in bulk; they must be entered individually."
+    ]
+  },
+  {
+    "id": 167,
+    "title": "Identifying Early Defects",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 2,
+    "chosen_ans": "Ready to share",
+    "explanation": "The \"Ready to share\" step runs tests to verify newly introduced changes against the existing application, identifying issues early in the development cycle.",
+    "options": [
+      "Ready to deploy",
+      "Ready to accept",
+      "Ready to share",
+      "Deploy"
+    ]
+  },
+  {
+    "id": 168,
+    "title": "Native CI/CD Automation",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "Deployment Manager",
+    "explanation": "Deployment Manager is Pega's standard out-of-the-box tool to fully automate CI/CD workflows, packaging, and environment promotion without third-party dependencies.",
+    "options": [
+      "Agile Workbench",
+      "Deployment Manager",
+      "Access Manager",
+      "App Studio Application Profile"
+    ]
+  },
+  {
+    "id": 169,
+    "title": "Studio Navigation for Pipelines",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "Admin Studio > Deployment Manager",
+    "explanation": "Deployment Manager is accessed via Admin Studio to design, configure, and manage application pipelines.",
+    "options": [
+      "Dev Studio > Application > Security",
+      "Admin Studio > Deployment Manager",
+      "App Studio > Channels",
+      "Prediction Studio"
+    ]
+  },
+  {
+    "id": 170,
+    "title": "Rollback Strategy",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 0,
+    "chosen_ans": "Automated rollback during the Deploy step",
+    "explanation": "The deployment step includes validation in preproduction, deployment to production, and post-deployment tests with the built-in capability to automatically roll back changes if issues occur.",
+    "options": [
+      "Automated rollback during the Deploy step",
+      "Creating a Feedback item in Agile Workbench",
+      "Locking the Ruleset in Dev Studio",
+      "Re-running the \"Ready to share\" step"
+    ]
+  },
+  {
+    "id": 171,
+    "title": "Continuous Integration Gate",
+    "has_explicit": false,
+    "explicit_text": "",
+    "chosen_idx": 1,
+    "chosen_ans": "The release pipeline should be stopped until the failing issue is fixed.",
+    "explanation": "CI/CD best practices dictate that if automated unit tests fail during continuous integration, the release pipeline must be stopped until the issue is fixed to prevent bad code from progressing.",
+    "options": [
+      "The pipeline should automatically ignore the failed unit tests and push the code to UAT.",
+      "The release pipeline should be stopped until the failing issue is fixed.",
+      "The system should automatically roll back the entire application to the previous version.",
+      "The changes should be moved directly to production with a warning flag."
+    ]
+  }
+]

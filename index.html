@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pega Academy Practice Exam - Interactive Scenarios & Knowledge Checks</title>
+  <meta name="description" content="Interactive Pega Academy scenario-based practice questions with 3-attempt progressive feedback and detailed architectural explanations.">
+  <meta name="theme-color" content="#001a41">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Pega Exam">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/svg+xml" href="icons/icon.svg">
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="theme-light">
+  <!-- Top Navigation Header -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand">
+        <div class="brand-logo">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+            <polyline points="2 17 12 22 22 17"></polyline>
+            <polyline points="2 12 12 17 22 12"></polyline>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">PEGA ACADEMY</span>
+          <span class="brand-subtitle">Interactive Practice Engine</span>
+        </div>
+      </div>
+
+      <div class="header-center">
+        <!-- Quick stats -->
+        <div class="stat-pill" title="Total Score">
+          <span class="stat-label">Score:</span>
+          <span class="stat-value" id="header-score">0 / 0</span>
+        </div>
+        <div class="stat-pill" title="Accuracy Rate">
+          <span class="stat-label">Accuracy:</span>
+          <span class="stat-value" id="header-accuracy">0%</span>
+        </div>
+        <div class="stat-pill" title="Questions Answered">
+          <span class="stat-label">Progress:</span>
+          <span class="stat-value" id="header-progress">0 / 60</span>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <button id="btn-install-app" class="btn-icon btn-install-app" title="Install Pega Exam as App" style="display: none;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span class="btn-text">Install App</span>
+        </button>
+
+        <button id="btn-grid-toggle" class="btn-icon" title="View Question Grid (Navigator)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+          </svg>
+          <span class="btn-text" id="grid-btn-text">Grid (60)</span>
+        </button>
+
+        <button id="btn-summary-toggle" class="btn-icon" title="View Scorecard & Mastery Breakdown">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 20V10"></path>
+            <path d="M12 20V4"></path>
+            <path d="M6 20v-6"></path>
+          </svg>
+          <span class="btn-text">Stats</span>
+        </button>
+
+        <button id="btn-theme-toggle" class="btn-icon-circle" title="Toggle Dark/Light Mode">
+          <span id="theme-icon">🌙</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Progress Bar Strip -->
+  <div class="progress-strip-wrapper">
+    <div class="progress-bar-container">
+      <div class="progress-segment correct" id="pbar-correct" style="width: 0%"></div>
+      <div class="progress-segment in-progress" id="pbar-in-progress" style="width: 0%"></div>
+      <div class="progress-segment revealed" id="pbar-revealed" style="width: 0%"></div>
+    </div>
+  </div>
+
+  <!-- Filter & Controls Toolbar -->
+  <div class="toolbar-section">
+    <div class="toolbar-container">
+      <div class="filter-group exam-set-filter-group">
+        <label for="exam-set-select" class="filter-label">Exam Set:</label>
+        <select id="exam-set-select" class="dropdown-filter exam-set-dropdown" title="Select between 4 balanced 60-question mock exams or all 240 questions">
+          <option value="1">Practice Exam Set 1 (60 Qs)</option>
+          <option value="2">Practice Exam Set 2 (60 Qs)</option>
+          <option value="3">Practice Exam Set 3 (60 Qs)</option>
+          <option value="4">Practice Exam Set 4 (60 Qs)</option>
+          <option value="all">All Practice Bank (240 Qs)</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="category-select" class="filter-label">Topic:</label>
+        <select id="category-select" class="dropdown-filter">
+          <option value="all">All Topics (60 Questions)</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="status-filter" class="filter-label">Filter:</label>
+        <select id="status-filter" class="dropdown-filter">
+          <option value="all">All Questions</option>
+          <option value="unanswered">Unanswered</option>
+          <option value="in_progress">In Progress (Attempts remaining)</option>
+          <option value="correct">Solved Correctly</option>
+          <option value="revealed">Revealed (3 Failed Attempts)</option>
+          <option value="bookmarked">Bookmarked (★)</option>
+        </select>
+      </div>
+
+      <div class="search-box">
+        <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="search-input" placeholder="Search scenarios, rules, keywords...">
+        <button id="search-clear" class="btn-clear" style="display: none;">&times;</button>
+      </div>
+
+      <div class="toolbar-buttons">
+        <button id="btn-shuffle-toggle" class="btn-shuffle active" title="Toggle between Random Exam Order and Original Topic Order">
+          <span class="shuffle-icon">🔀</span> <span id="shuffle-btn-text">Random Order</span>
+        </button>
+        <button id="btn-reshuffle" class="btn-reshuffle" title="Generate a fresh random exam order">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+            <polyline points="23 4 23 10 17 10"></polyline>
+            <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+          </svg>
+        </button>
+        <button id="btn-bookmark" class="btn-bookmark" title="Bookmark this question for review">
+          <span class="bookmark-star">☆</span> Bookmark
+        </button>
+        <button id="btn-reset-q" class="btn-text-only" title="Reset this question's attempts">
+          Reset Question
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Question Content Area -->
+  <main class="main-content">
+    <div class="content-container">
+
+      <!-- Question Card -->
+      <article class="question-card" id="question-card">
+        <!-- Question Meta Header -->
+        <div class="card-meta-header">
+          <div class="meta-left">
+            <span class="set-badge" id="q-set-badge">Set 1</span>
+            <span class="q-badge" id="q-index-badge">Question 1 of 60</span>
+            <span class="order-badge" id="q-order-badge" title="Current Ordering Mode">🔀 Exam Order</span>
+            <span class="category-pill" id="q-category-pill">Pega Modularity</span>
+            <span class="status-pill status-unanswered" id="q-status-pill">Unanswered</span>
+          </div>
+
+          <div class="meta-right">
+            <!-- Attempts Counter Component -->
+            <div class="attempts-tracker" id="attempts-tracker" title="You have up to 3 attempts before the correct answer is revealed">
+              <span class="attempts-text">Attempts:</span>
+              <div class="attempts-dots">
+                <span class="dot" id="dot-1" title="Attempt 1"></span>
+                <span class="dot" id="dot-2" title="Attempt 2"></span>
+                <span class="dot" id="dot-3" title="Attempt 3"></span>
+              </div>
+              <span class="attempts-count-text" id="attempts-count-text">0 / 3</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scenario Title -->
+        <h2 class="scenario-title" id="scenario-title">Scenario 1: Business Logic Update</h2>
+
+        <!-- Scenario Context Box (if available) -->
+        <div class="scenario-box" id="scenario-box">
+          <div class="scenario-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+            BUSINESS SCENARIO
+          </div>
+          <p class="scenario-text" id="scenario-text"></p>
+        </div>
+
+        <!-- Question Text -->
+        <div class="question-prompt-box">
+          <p class="question-text" id="question-text"></p>
+        </div>
+
+        <!-- Options Container -->
+        <div class="options-container" id="options-container">
+          <!-- Dynamic Option Cards generated by JS -->
+        </div>
+
+        <!-- Feedback Banner Area (Shown after submit) -->
+        <div class="feedback-banner" id="feedback-banner" style="display: none;">
+          <div class="feedback-icon" id="feedback-icon"></div>
+          <div class="feedback-content">
+            <div class="feedback-title" id="feedback-title"></div>
+            <div class="feedback-message" id="feedback-message"></div>
+          </div>
+        </div>
+
+        <!-- Explanation Card (Shown on correct or after 3 failed attempts) -->
+        <div class="explanation-card" id="explanation-card" style="display: none;">
+          <div class="explanation-header">
+            <div class="explanation-badge">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              PEGA CONCEPT & EXAM EXPLANATION
+            </div>
+            <div class="correct-answer-pill" id="exp-correct-answer-pill">
+              <strong>Correct Answer:</strong> <span id="exp-correct-answer-text"></span>
+            </div>
+          </div>
+          <div class="explanation-body">
+            <p id="explanation-text"></p>
+          </div>
+        </div>
+
+        <!-- Bottom Action Bar -->
+        <div class="card-footer-actions">
+          <div class="footer-left">
+            <button id="btn-prev" class="btn btn-secondary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+              Previous
+            </button>
+            <button id="btn-next" class="btn btn-secondary">
+              Next
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </div>
+
+          <div class="footer-right">
+            <button id="btn-submit" class="btn btn-primary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              Submit Answer
+            </button>
+          </div>
+        </div>
+
+        <!-- Keyboard Hint -->
+        <div class="keyboard-hint">
+          <span>Shortcuts: <kbd>1</kbd>-<kbd>4</kbd> or <kbd>A</kbd>-<kbd>D</kbd> to pick &bull; <kbd>Enter</kbd> to submit &bull; <kbd>&larr;</kbd>/<kbd>&rarr;</kbd> to navigate &bull; <kbd>R</kbd> to reshuffle &bull; <kbd>G</kbd> for grid</span>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <!-- Question Grid Drawer (Navigator) -->
+  <div class="drawer-backdrop" id="drawer-backdrop"></div>
+  <aside class="question-drawer" id="question-drawer">
+    <div class="drawer-header">
+      <div class="drawer-title-group">
+        <h3>Question Navigator</h3>
+        <span class="drawer-count" id="drawer-filter-count">Showing 60 of 60</span>
+      </div>
+      <button class="drawer-close" id="drawer-close">&times;</button>
+    </div>
+
+    <!-- Quick Legend -->
+    <div class="drawer-legend">
+      <span class="legend-item"><span class="legend-dot unanswered"></span> Unanswered</span>
+      <span class="legend-item"><span class="legend-dot in-progress"></span> In Progress</span>
+      <span class="legend-item"><span class="legend-dot correct"></span> Correct</span>
+      <span class="legend-item"><span class="legend-dot revealed"></span> Revealed (3 failed)</span>
+      <span class="legend-item"><span class="legend-dot bookmarked"></span> Bookmarked</span>
+    </div>
+
+    <!-- Drawer Filter Tabs -->
+    <div class="drawer-tabs">
+      <button class="tab-btn active" data-tab="all">All</button>
+      <button class="tab-btn" data-tab="unanswered">Unanswered</button>
+      <button class="tab-btn" data-tab="correct">Correct</button>
+      <button class="tab-btn" data-tab="revealed">Revealed</button>
+      <button class="tab-btn" data-tab="bookmarked">Bookmarked</button>
+    </div>
+
+    <!-- Grid Container -->
+    <div class="grid-scroll-area">
+      <div class="questions-grid" id="questions-grid">
+        <!-- 212 buttons rendered by JS -->
+      </div>
+    </div>
+  </aside>
+
+  <!-- Scorecard / Stats Modal -->
+  <div class="modal-backdrop" id="modal-backdrop" style="display: none;">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Exam Performance & Topic Mastery</h3>
+        <button class="modal-close" id="modal-close">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <!-- Big Stat Cards -->
+        <div class="stats-overview-grid">
+          <div class="overview-card total">
+            <span class="num" id="stat-total-q">60</span>
+            <span class="lbl" id="stat-total-lbl">Set 1 Questions</span>
+          </div>
+          <div class="overview-card correct-1">
+            <span class="num" id="stat-first-try">0</span>
+            <span class="lbl">Mastered (1st Try)</span>
+          </div>
+          <div class="overview-card correct-2">
+            <span class="num" id="stat-subseq-try">0</span>
+            <span class="lbl">Solved (2nd/3rd Try)</span>
+          </div>
+          <div class="overview-card revealed">
+            <span class="num" id="stat-revealed">0</span>
+            <span class="lbl">Revealed (3 Failed)</span>
+          </div>
+        </div>
+
+        <!-- Exam Set Pass/Fail Banner -->
+        <div class="exam-status-card" id="exam-status-card">
+          <div class="exam-status-left">
+            <span class="exam-status-tag" id="exam-status-tag">Practice Exam Status</span>
+            <h4 class="exam-status-title" id="exam-status-title">Passing Target: 65% (39 / 60 Correct)</h4>
+            <p class="exam-status-desc" id="exam-status-desc">Score 39 or more correct answers to meet standard Pega certification passing threshold.</p>
+          </div>
+          <div class="exam-status-badge" id="exam-status-badge">In Progress</div>
+        </div>
+
+        <!-- 4-Set Exam Performance Matrix -->
+        <div class="sets-performance-section">
+          <h4>4 Practice Exam Sets Overview</h4>
+          <div class="sets-matrix-grid" id="sets-matrix-grid">
+            <!-- Dynamically populated Set 1, 2, 3, 4 cards -->
+          </div>
+        </div>
+
+        <!-- Topic Mastery Table -->
+        <div class="topic-mastery-section">
+          <h4>Performance by Pega Knowledge Area</h4>
+          <div class="topic-list" id="topic-mastery-list">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+        <!-- Modal Actions -->
+        <div class="modal-actions-footer">
+          <button id="btn-reset-all" class="btn btn-danger">Reset All Progress</button>
+          <button id="btn-close-modal" class="btn btn-secondary">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notification Toast -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Load Questions Data and App Logic -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
