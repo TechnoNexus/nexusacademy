@@ -1,11 +1,11 @@
 # Architecture and State: Nexus Academy Platform
-> **Course 1: Pega Certified System Architect (CSA / CSSA) Scenario Engine**
+> **Course 1: Pega Certified System Architect (CSA) Scenario Engine**
 
 ## Overview
-**Nexus Academy** is an enterprise certification and scenario simulation platform. This application implements the core Nexus Academy architecture, featuring **Course 1 (Pega CSA/CSSA)** with **240 total audited scenario questions** organized into **4 balanced 60-question practice mock exams** (Set 1, Set 2, Set 3, Set 4) plus an "All Practice Bank" mode. The application delivers an interactive practice experience mirroring real enterprise exams, enhanced with a 3-attempt progressive feedback mechanism, authentic exam passing evaluation (65% / 39 correct), randomized exam order, question filtering, full concept explanations, Course Catalog navigation, and PWA offline mobile support.
+**Nexus Academy** is an enterprise certification and scenario simulation platform. This application implements the core Nexus Academy architecture, featuring **Course 1 (Pega CSA)** with **240 total audited scenario questions** organized into **4 balanced 60-question practice mock exams** (Set 1, Set 2, Set 3, Set 4) plus an "All Practice Bank" mode. The application delivers an interactive practice experience mirroring real enterprise exams, enhanced with a 3-attempt progressive feedback mechanism, authentic exam passing evaluation (65% / 39 correct), randomized exam order, question filtering, full concept explanations, Course Catalog navigation, and PWA offline mobile support.
 
 ## Nexus Academy Platform Roadmap
-- **Course 1 (Active)**: Pega Certified System Architect (CSA & CSSA) Scenario Simulator
+- **Course 1 (Active)**: Pega Certified System Architect (CSA) Scenario Simulator
 - **Course 2 (Upcoming)**: Pega Senior System Architect (CSSA) Advanced Architecture
 - **Course 3 (Upcoming)**: Pega Certified Lead System Architect (LSA) Enterprise Patterns
 - **Course 4 (Upcoming)**: Pega Certified Business Architect (PCBA) Essentials
@@ -91,7 +91,7 @@ c:\AI\Utilities\pega-practise\
 ### Key Features
 - **Progressive Web App (PWA) & Offline Mobile Installation**: Installable directly on iOS, Android, and Desktop with `manifest.json`, Service Worker caching (`sw.js`), custom vector/PNG icons, and an active "Install App" prompt.
 - **240 Complete Scenarios & Knowledge Checks** covering all 21 Pega topics (212 from source PDF + 28 realistic author-created scenarios).
-- **4 Selectable 60-Question Mock Exams**: Exactly matches the authentic 60-question Pega CSA/CSSA certification format.
+- **4 Selectable 60-Question Mock Exams**: Exactly matches the authentic 60-question Pega CSA certification format.
 - **Authentic Exam Randomization**: Questions appear in randomized order by default, with one-click reshuffle.
 - **Visual Attempt Indicator**: 3 animated dots showing state (`● ● ○`).
 - **Interactive Question Navigator (60/240 Grid)**: Real-time status colors for each question in exam order.

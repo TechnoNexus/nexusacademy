@@ -6,8 +6,8 @@
 
 ## 1. Executive Summary & Ultimate Mission
 
-- **Repository**: `c:\AI\Utilities\pega-practise`
-- **What this project is**: An enterprise-grade, interactive **Pega Practice Exam Engine & Scenario Bank** built for Pega Certified System Architect (CSA) and Senior System Architect (CSSA) aspirants.
+- **Repository**: `c:\AI\Utilities\pega-practise` (GitHub: `https://github.com/TechnoNexus/nexusacademy`)
+- **What this project is**: **Nexus Academy**, an enterprise-grade certification simulation platform. **Course 1** is the complete **Pega Certified System Architect (CSA)** Practice Exam Engine & Scenario Bank.
 - **Current Content Assets**:
   - **240 High-Yield Scenario Questions**: 212 questions extracted from the 84-page official Pega study material + 28 author-created realistic enterprise scenarios.
   - **100% Audited Answer Integrity**: Every single question's marked correct answer and explanation have been audited and verified to match with zero discrepancies.

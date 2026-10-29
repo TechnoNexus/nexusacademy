@@ -1,7 +1,7 @@
 {
   "name": "Nexus Academy - Enterprise Certification Simulator",
   "short_name": "Nexus Academy",
-  "description": "Nexus Academy Interactive Practice Platform. Course 1: Pega Certified System Architect (CSA/CSSA) Exam Simulator with 240 audited scenarios.",
+  "description": "Nexus Academy Interactive Practice Platform. Course 1: Pega Certified System Architect (CSA) Exam Simulator with 240 audited scenarios.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
