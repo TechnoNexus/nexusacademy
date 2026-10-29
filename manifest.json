@@ -1,7 +1,7 @@
 {
-  "name": "Pega Academy Practice Exam Simulator",
-  "short_name": "Pega Exam",
-  "description": "240 High-Yield Pega Scenario Practice Questions & 4 Mock Exams (CSA/CSSA)",
+  "name": "Nexus Academy - Enterprise Certification Simulator",
+  "short_name": "Nexus Academy",
+  "description": "Nexus Academy Interactive Practice Platform. Course 1: Pega Certified System Architect (CSA/CSSA) Exam Simulator with 240 audited scenarios.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
@@ -42,24 +42,24 @@
   ],
   "shortcuts": [
     {
-      "name": "Set 1 Exam (60 Qs)",
+      "name": "Course 1: Set 1 Exam (60 Qs)",
       "url": "./index.html?set=1",
-      "description": "Practice Mock Exam Set 1"
+      "description": "Start Pega Mock Exam Set 1"
     },
     {
-      "name": "Set 2 Exam (60 Qs)",
+      "name": "Course 1: Set 2 Exam (60 Qs)",
       "url": "./index.html?set=2",
-      "description": "Practice Mock Exam Set 2"
+      "description": "Start Pega Mock Exam Set 2"
     },
     {
-      "name": "Set 3 Exam (60 Qs)",
+      "name": "Course 1: Set 3 Exam (60 Qs)",
       "url": "./index.html?set=3",
-      "description": "Practice Mock Exam Set 3"
+      "description": "Start Pega Mock Exam Set 3"
     },
     {
-      "name": "Set 4 Exam (60 Qs)",
+      "name": "Course 1: Set 4 Exam (60 Qs)",
       "url": "./index.html?set=4",
-      "description": "Practice Mock Exam Set 4"
+      "description": "Start Pega Mock Exam Set 4"
     }
   ]
 }

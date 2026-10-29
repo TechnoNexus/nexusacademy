@@ -101,6 +101,13 @@
   const themeIcon = document.getElementById('theme-icon');
   const toastContainer = document.getElementById('toast-container');
 
+  const btnCoursesToggle = document.getElementById('btn-courses-toggle');
+  const brandHome = document.getElementById('brand-home');
+  const coursesModalBackdrop = document.getElementById('courses-modal-backdrop');
+  const coursesModalClose = document.getElementById('courses-modal-close');
+  const btnCloseCoursesModal = document.getElementById('btn-close-courses-modal');
+  const btnContinueCourse1 = document.getElementById('btn-continue-course-1');
+
   // Initialize Application
   function init() {
     loadTheme();
@@ -939,6 +946,20 @@
     document.body.style.overflow = '';
   }
 
+  function openCoursesModal() {
+    if (coursesModalBackdrop) {
+      coursesModalBackdrop.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeCoursesModal() {
+    if (coursesModalBackdrop) {
+      coursesModalBackdrop.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+  }
+
   // Dark / Light Theme
   function loadTheme() {
     const saved = localStorage.getItem(THEME_KEY);
@@ -1091,13 +1112,24 @@
       });
     });
 
-    // Modal
+    // Modals
     btnSummaryToggle.addEventListener('click', openModal);
     modalClose.addEventListener('click', closeModal);
     btnCloseModal.addEventListener('click', closeModal);
     modalBackdrop.addEventListener('click', (e) => {
       if (e.target === modalBackdrop) closeModal();
     });
+
+    if (btnCoursesToggle) btnCoursesToggle.addEventListener('click', openCoursesModal);
+    if (brandHome) brandHome.addEventListener('click', openCoursesModal);
+    if (coursesModalClose) coursesModalClose.addEventListener('click', closeCoursesModal);
+    if (btnCloseCoursesModal) btnCloseCoursesModal.addEventListener('click', closeCoursesModal);
+    if (btnContinueCourse1) btnContinueCourse1.addEventListener('click', closeCoursesModal);
+    if (coursesModalBackdrop) {
+      coursesModalBackdrop.addEventListener('click', (e) => {
+        if (e.target === coursesModalBackdrop) closeCoursesModal();
+      });
+    }
 
     // Keyboard Shortcuts
     document.addEventListener('keydown', (e) => {
@@ -1138,6 +1170,7 @@
       else if (e.key === 'Escape') {
         closeDrawer();
         closeModal();
+        closeCoursesModal();
       }
     });
   }

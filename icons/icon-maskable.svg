@@ -1,26 +1,36 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
   <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#00122e"/>
-      <stop offset="50%" stop-color="#001a41"/>
-      <stop offset="100%" stop-color="#002d6b"/>
+    <linearGradient id="nexusBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#020b1c"/>
+      <stop offset="45%" stop-color="#001a41"/>
+      <stop offset="100%" stop-color="#00357a"/>
     </linearGradient>
-    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#00a3e0"/>
-      <stop offset="100%" stop-color="#38bdf8"/>
+    <linearGradient id="nexusCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#00a3e0"/>
+    </linearGradient>
+    <linearGradient id="nexusEmerald" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <linearGradient id="nexusGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
     </linearGradient>
   </defs>
-  <!-- Full bleed Background for maskable -->
-  <rect width="512" height="512" fill="url(#bgGrad)"/>
-  
-  <!-- Top Layer scaled within safe zone -->
-  <polygon points="256,110 116,194 256,270 396,194" fill="#001a41" fill-opacity="0.6" stroke="url(#accentGrad)" stroke-width="22" stroke-linejoin="round" stroke-linecap="round"/>
-  
-  <!-- Middle Layer -->
-  <polyline points="116,258 256,334 396,258" fill="none" stroke="#005bb7" stroke-width="22" stroke-linejoin="round" stroke-linecap="round"/>
-  
-  <!-- Bottom Foundation Layer -->
-  <polyline points="116,322 256,398 396,322" fill="none" stroke="#10b981" stroke-width="22" stroke-linejoin="round" stroke-linecap="round"/>
-  
-  <circle cx="256" cy="194" r="12" fill="#38bdf8"/>
+
+  <rect width="512" height="512" fill="url(#nexusBg)"/>
+
+  <!-- Nexus Symbol scaled within 75% safe area -->
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <line x1="160" y1="360" x2="160" y2="152" stroke="#005bb7" stroke-width="26"/>
+    <line x1="160" y1="152" x2="352" y2="360" stroke="url(#nexusCyan)" stroke-width="28"/>
+    <line x1="352" y1="360" x2="352" y2="152" stroke="url(#nexusEmerald)" stroke-width="26"/>
+
+    <circle cx="160" cy="152" r="18" fill="#005bb7" stroke="#ffffff" stroke-width="4"/>
+    <circle cx="352" cy="152" r="18" fill="#10b981" stroke="#ffffff" stroke-width="4"/>
+    <circle cx="160" cy="360" r="18" fill="#0284c7" stroke="#ffffff" stroke-width="4"/>
+    <circle cx="352" cy="360" r="18" fill="#059669" stroke="#ffffff" stroke-width="4"/>
+    <circle cx="256" cy="256" r="16" fill="url(#nexusGold)" stroke="#ffffff" stroke-width="4"/>
+  </g>
 </svg>

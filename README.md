@@ -1,8 +1,16 @@
-# Pega Academy Practice Exam - Interactive Web Utility
+# Nexus Academy - Enterprise Certification Simulator
+> **Course 1: Pega Certified System Architect (CSA & CSSA) Scenario Engine**
 
-An interactive web-based practice exam engine built from the complete Pega certification scenario question bank, expanded to **240 questions** organized into **4 realistic 60-question mock exams**.
+**Nexus Academy** is an enterprise-grade learning and certification simulation platform. This application hosts **Course 1**, featuring **240 audited scenario questions** organized into **4 balanced 60-question mock exams** with an authentic 3-attempt progressive feedback engine and a 65% certification passing evaluation.
 
-## Key Features
+## Nexus Academy Platform Architecture
+
+- **Course 1 (Active)**: *Pega Certified System Architect (CSA / CSSA)* - 240 high-yield scenarios across 4 balanced 60-question mock exams.
+- **Course 2 (Upcoming)**: *Pega Senior System Architect (CSSA) Advanced Architecture*
+- **Course 3 (Upcoming)**: *Pega Certified Lead System Architect (LSA) Enterprise Patterns*
+- **Course 4 (Upcoming)**: *Pega Certified Business Architect (PCBA) Essentials*
+
+## Course 1 Key Features
 
 - **4 Balanced Practice Exam Sets (60 Questions Each)**:
   - **Set 1 (60 Qs)**, **Set 2 (60 Qs)**, **Set 3 (60 Qs)**, and **Set 4 (60 Qs)**: Each set features a realistic, balanced distribution across all 21 Pega syllabus domains (Modularity, Routing, SLAs, Case Life Cycle, Security, Data Pages, Decisioning, Validation, Background Processing, Constellation UI, CI/CD).

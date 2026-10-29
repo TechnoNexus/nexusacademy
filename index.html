@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pega Academy Practice Exam - Interactive Scenarios & Knowledge Checks</title>
-  <meta name="description" content="Interactive Pega Academy scenario-based practice questions with 3-attempt progressive feedback and detailed architectural explanations.">
+  <title>Nexus Academy | Pega Certified Practice Exam Simulator (Course 1)</title>
+  <meta name="description" content="Nexus Academy Enterprise Certification Platform. Course 1: Pega Certified System Architect (CSA/CSSA) Exam Simulator with 240 audited scenarios and 4 balanced mock tests.">
   <meta name="theme-color" content="#001a41">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Pega Exam">
+  <meta name="apple-mobile-web-app-title" content="Nexus Academy">
   <link rel="manifest" href="manifest.json">
   <link rel="icon" type="image/svg+xml" href="icons/icon.svg">
   <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
@@ -22,17 +22,20 @@
   <!-- Top Navigation Header -->
   <header class="app-header">
     <div class="header-container">
-      <div class="brand">
+      <div class="brand" id="brand-home" title="Nexus Academy - Enterprise Certification Platform">
         <div class="brand-logo">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-            <polyline points="2 17 12 22 22 17"></polyline>
-            <polyline points="2 12 12 17 22 12"></polyline>
+            <line x1="4" y1="20" x2="4" y2="4"></line>
+            <line x1="4" y1="4" x2="20" y2="20"></line>
+            <line x1="20" y1="20" x2="20" y2="4"></line>
+            <circle cx="4" cy="4" r="1.5" fill="currentColor"></circle>
+            <circle cx="20" cy="20" r="1.5" fill="currentColor"></circle>
+            <circle cx="12" cy="12" r="2.2" fill="#38bdf8"></circle>
           </svg>
         </div>
         <div class="brand-text">
-          <span class="brand-title">PEGA ACADEMY</span>
-          <span class="brand-subtitle">Interactive Practice Engine</span>
+          <span class="brand-title">NEXUS ACADEMY</span>
+          <span class="brand-subtitle">Course 1: Pega CSA Practice Simulator</span>
         </div>
       </div>
 
@@ -53,7 +56,15 @@
       </div>
 
       <div class="header-actions">
-        <button id="btn-install-app" class="btn-icon btn-install-app" title="Install Pega Exam as App" style="display: none;">
+        <button id="btn-courses-toggle" class="btn-icon btn-courses-toggle" title="View Nexus Academy Course Catalog">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+          </svg>
+          <span class="btn-text">Courses (1)</span>
+        </button>
+
+        <button id="btn-install-app" class="btn-icon btn-install-app" title="Install Nexus Academy as App" style="display: none;">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
             <polyline points="7 10 12 15 17 10"></polyline>
@@ -87,6 +98,21 @@
       </div>
     </div>
   </header>
+
+  <!-- Nexus Academy Course 01 Breadcrumb Bar -->
+  <div class="course-bar">
+    <div class="course-bar-container">
+      <div class="course-breadcrumb">
+        <span class="course-badge">COURSE 01</span>
+        <span class="course-name">Pega Certified System Architect (CSA & CSSA) Scenario Simulator</span>
+      </div>
+      <div class="course-meta-tags">
+        <span class="meta-tag">240 Scenario Questions</span>
+        <span class="meta-tag">4 Mock Exams (60 Qs Each)</span>
+        <span class="meta-tag highlight">Passing Benchmark: 65% (39/60)</span>
+      </div>
+    </div>
+  </div>
 
   <!-- Progress Bar Strip -->
   <div class="progress-strip-wrapper">
@@ -376,6 +402,79 @@
         <div class="modal-actions-footer">
           <button id="btn-reset-all" class="btn btn-danger">Reset All Progress</button>
           <button id="btn-close-modal" class="btn btn-secondary">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nexus Academy Course Catalog Modal -->
+  <div class="modal-backdrop" id="courses-modal-backdrop" style="display: none;">
+    <div class="modal-card courses-catalog-modal">
+      <div class="modal-header">
+        <div class="courses-modal-header-left">
+          <span class="academy-tag">NEXUS ACADEMY</span>
+          <h3>Course Catalog & Learning Paths</h3>
+        </div>
+        <button class="modal-close" id="courses-modal-close">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <p class="catalog-intro">Welcome to <strong>Nexus Academy</strong>. Master enterprise software certifications through hands-on scenario engines, 3-attempt progressive feedback, and authentic exam simulations.</p>
+        
+        <div class="course-cards-list">
+          <!-- Course 1 (Active) -->
+          <div class="course-catalog-card active-course">
+            <div class="course-card-top">
+              <span class="course-pill-number">COURSE 01</span>
+              <span class="course-status-pill enrolled">Active • Enrolled</span>
+            </div>
+            <h4 class="course-card-title">Pega Certified System Architect (CSA & CSSA) Scenario Simulator</h4>
+            <p class="course-card-desc">240 audited enterprise scenario questions partitioned across 4 balanced 60-question mock exams matching official Pega certification standards with a 65% passing target.</p>
+            <div class="course-card-stats">
+              <span class="stat-badge">240 Scenario Questions</span>
+              <span class="stat-badge">4 Mock Exams (60 Qs Each)</span>
+              <span class="stat-badge">21 Knowledge Areas</span>
+              <span class="stat-badge">3-Attempt Loop</span>
+              <span class="stat-badge">65% Benchmark</span>
+            </div>
+            <div class="course-card-footer">
+              <button class="btn btn-primary btn-sm" id="btn-continue-course-1">Continue Learning</button>
+            </div>
+          </div>
+
+          <!-- Course 2 (Upcoming) -->
+          <div class="course-catalog-card upcoming-course">
+            <div class="course-card-top">
+              <span class="course-pill-number">COURSE 02</span>
+              <span class="course-status-pill upcoming">Coming Soon</span>
+            </div>
+            <h4 class="course-card-title">Pega Senior System Architect (CSSA) Advanced Architecture</h4>
+            <p class="course-card-desc">Master advanced enterprise patterns: ABAC security read policies, parent/child case locking (Optimistic vs Default), background Queue Processors, and Keyed Data Pages.</p>
+            <div class="course-card-stats">
+              <span class="stat-badge">Advanced Scenarios</span>
+              <span class="stat-badge">Deep Rationale</span>
+              <span class="stat-badge">CSSA Track</span>
+            </div>
+          </div>
+
+          <!-- Course 3 (Upcoming) -->
+          <div class="course-catalog-card upcoming-course">
+            <div class="course-card-top">
+              <span class="course-pill-number">COURSE 03</span>
+              <span class="course-status-pill upcoming">Coming Soon</span>
+            </div>
+            <h4 class="course-card-title">Pega Certified Lead System Architect (LSA) Enterprise Patterns</h4>
+            <p class="course-card-desc">Enterprise Class Structure (ECS) design, multi-application rule resolution hierarchy, Constellation UI DX API architecture, and Deployment Manager quality gates.</p>
+            <div class="course-card-stats">
+              <span class="stat-badge">Enterprise Architecture</span>
+              <span class="stat-badge">ECS Framework</span>
+              <span class="stat-badge">LSA Track</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-actions-footer">
+          <button id="btn-close-courses-modal" class="btn btn-secondary">Close Catalog</button>
         </div>
       </div>
     </div>
