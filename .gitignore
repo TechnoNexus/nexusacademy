@@ -19,3 +19,16 @@ Thumbs.db
 
 # Logs
 *.log
+
+# Node & Dependencies
+node_modules/
+package-lock.json
+
+# Web Build Output for Android
+www/
+
+# Android Build Outputs & Gradle Cache
+android/.gradle/
+android/build/
+android/app/build/
+*.hprof
